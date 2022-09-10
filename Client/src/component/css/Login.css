@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Cinzel+Decorative&family=Poppins:wght@200&display=swap');
+
 *
 {
+
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 .LoginContainer
 {
     display: flex;
@@ -33,10 +36,12 @@ border-radius: 250px;
 {
     width: 420px;
     height:55px;
+
     border: #B0ACAC 1.5px solid;
     border-radius: 5px;
     margin-top: 20px;
 }
+
 .Input-box2
 {
     width: 420px;
@@ -105,3 +110,4 @@ line-height: 24px;
     text-decoration: none;
     color: #1473E6;
 }
+
