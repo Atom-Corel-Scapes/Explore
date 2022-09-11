@@ -1,11 +1,8 @@
-import express from "express";
+import bcrypt from "bcrypt";
 import { signupModel } from "../Model/Model.js";
 
-const signup = express();
-
-signup.post("/signup", (req, res) => {
-  const signup = new signupModel(req.body);
-  signupModel.findOne({ userEmail: req.body.userEmail }, (err, data) => {
+export const signup = async (req, res) => {
+  signupModel.findOne({ userEmail: req.body.userEmail }, async (err, data) => {
     if (err) {
       console.log(err);
     } else {
@@ -14,18 +11,31 @@ signup.post("/signup", (req, res) => {
           "The Email has been taken already!!! Please enter a new Email ID"
         );
       } else {
-        signup.save((err, data) => {
+        const body = req.body;
+        if (
+          !(
+            body.userFirstname &&
+            body.userLastname &&
+            body.userEmail &&
+            body.userPassword &&
+            body.userPhoneNumber
+          )
+        ) {
+          return res.status(400).send({ error: "Data not formatted properly" });
+        }
+        const user = new signupModel(body);
+        const salt = await bcrypt.genSalt(10);
+        user.userPassword = await bcrypt.hash(user.userPassword, salt);
+        user.save((err, data) => {
           if (err) {
-            console.log(err);
+            res.send(err);
           }
           res.status(200).send({
-            message: "User's Credentials have been added!!!",
+            message: "User's Credentials have been added successfully!!!",
             data: data,
           });
         });
       }
     }
   });
-});
-
-export default signup;
+};
