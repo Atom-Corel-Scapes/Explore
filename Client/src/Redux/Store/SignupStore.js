@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { returndata } from "../signupSlice";
+import returndata from "../signupSlice";
 
 const store = configureStore({
     reducer: { sigupd: returndata },

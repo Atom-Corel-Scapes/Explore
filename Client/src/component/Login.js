@@ -4,7 +4,6 @@ import google from "../Images/google-logo-transparent-alphabet-4.png"
 import "./css/Login.css"
 import { useDispatch } from "react-redux"
 import { getUser } from '../Redux/loginSlice'
-
 import { Link } from 'react-router-dom'
 const Login = () => {
 
