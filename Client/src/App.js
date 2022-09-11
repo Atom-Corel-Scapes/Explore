@@ -6,7 +6,13 @@ import NavBar from './component/NavBar';
 import { Provider } from 'react-redux';
 import store from './Redux/Store/Store';
 
+
 function App() {
+  <div>
+    <NavBar />
+
+  </div>
+
 
 
 
@@ -16,8 +22,6 @@ function App() {
         <NavBar />
         <Login />
       </Provider>
-
-
     </div>
   );
 }

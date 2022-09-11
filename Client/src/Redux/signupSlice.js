@@ -30,7 +30,7 @@ const SignupReducer = createSlice({
             state.loading = false;
         },
         [signup.rejected]: (state, action) => {
-            state.loading = false
+            state.loading = false;
         },
     },
 });

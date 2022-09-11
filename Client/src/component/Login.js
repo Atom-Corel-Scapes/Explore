@@ -5,7 +5,7 @@ import "./css/Login.css"
 import { useDispatch } from "react-redux"
 import { getUser } from '../Redux/loginSlice'
 
-
+import { Link } from 'react-router-dom'
 const Login = () => {
 
   const dispatch = useDispatch();
@@ -21,7 +21,6 @@ const Login = () => {
 
   return (
     <div className="LoginContainer">
-
       <img className='Vector' src={VectorLogo} />
       <form className='form' onSubmit={signin}>
         <input type="text" placeholder='   Email Address *' required className='Input-box1'></input>
@@ -30,8 +29,7 @@ const Login = () => {
       </form>
 
       <button className='Sign-in-btn-glg'><img className='Googlelogo' src={google} />GOOGLE SIGN IN</button>
-      <p className='footer-signup-link'> Don't have an account ? <a href='#'>SIGN UP</a></p>
-
+      <p className='footer-signup-link'> Don't have an account ? <Link to="/signup" >SIGN UP</Link></p>
     </div>
   )
 
