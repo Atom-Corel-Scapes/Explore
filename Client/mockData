@@ -1,9 +1,0 @@
-_id : ObjectId("631e46f1d07f801004f113bc")
-userFirstname : "Sriram"
-userLastname : "D B"
-userEmail : "sriram@gmail.com"
-userPassword : "$2b$10$gaF1Hw8HHTNZdZU64cI5TOyFfFJkE6uAVWh7UbS6xSk92zQjMtitO"
-userPhoneNumber : 9080373479
-createdAt : 2022-09-11T20:37:05.478+00:00
-updatedAt : 2022-09-11T20:37:05.478+00:00
-__v : 0

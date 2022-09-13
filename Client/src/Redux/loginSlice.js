@@ -1,15 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 
 export const getUser = createAsyncThunk('User', async (data) => {
-    console.log(data);
+
     const result = fetch(`http://localhost:5000/authenticate/login?userEmail=${data.email}&userPassword=${data.pass}`).then((res) => {
         return res.json();
     })
     return result;
 })
 
-const logReducer = createSlice({
-    name: "user",
+export const logReducer = createSlice({
+    name: 'userdata',
     initialState: {
         loginData: [],
         loading: false
@@ -21,7 +24,7 @@ const logReducer = createSlice({
         },
         [getUser.fulfilled]: (state, action) => {
             console.log(action.payload);
-            state.signupdata = action.payload;
+            state.loginData = action.payload;
             state.loading = false;
         },
         [getUser.rejected]: (state, action) => {
