@@ -17,6 +17,7 @@ const uploadSchema = new mongoose.Schema({
       data: Buffer,
       contentType: String
     }
+    
   },
     { timestamps: true }
   )
