@@ -31,8 +31,7 @@ export const signup = async (req, res) => {
             res.send(err);
           }
           res.status(200).send({
-            message: "User's Credentials have been added successfully!!!",
-            data: data,
+            message: "User's data have been added successfully!!!",
           });
         });
       }
