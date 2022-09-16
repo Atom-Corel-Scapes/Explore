@@ -18,17 +18,14 @@ const upload = multer({
 export const uploadData = (req, res) => {
   upload(req, res, (err) => {
     if (err) {
-      // res.send("there is an when uploading data");
       console.log(err);
     } else {
-      // const addImage = new uploadModel(req.body);
       const addImage = new uploadModel({
         placeName: req.body.placeName,
         placeTag: req.body.placeTag,
         placeDescription: req.body.placeDescription,
         placeImage: {
           data: req.file.filename,
-          // contentType: "image/png",
         },
         cardId : Math.floor(1000 + Math.random() * 9000)
       });
