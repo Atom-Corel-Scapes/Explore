@@ -3,7 +3,7 @@
 
 
 import multer from "multer";
-import { uploadModel } from "../Model/Model.js";
+import { uploadModel } from "../Schema/UploadSchema.js";
 
 // storage 
 const storage = multer.diskStorage({

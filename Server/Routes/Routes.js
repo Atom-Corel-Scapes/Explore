@@ -1,6 +1,6 @@
 import express from "express";
 import { login } from "../Controllers/Login.js";
-import { signup } from "../controllers/signup.js";
+import { signup } from "../Controllers/Signup.js";
 import { uploadData } from "../Controllers/upload.js";
 
 const Route = express.Router();
