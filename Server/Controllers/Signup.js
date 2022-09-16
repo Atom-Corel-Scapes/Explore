@@ -1,8 +1,8 @@
 import bcrypt from "bcrypt";
-import { signupModel } from "../Schema/UserSchema.js";
+import { userModel } from "../Schema/UserSchema.js";
 
 export const signup = async (req, res) => {
-  signupModel.findOne({ userEmail: req.body.userEmail }, async (err, data) => {
+  userModel.findOne({ userEmail: req.body.userEmail }, async (err, data) => {
     if (err) {
       console.log(err);
     } else {
@@ -23,7 +23,7 @@ export const signup = async (req, res) => {
         ) {
           return res.status(400).send({ error: "Data not formatted properly" });
         }
-        const user = new signupModel(body);
+        const user = new userModel(body);
         const salt = await bcrypt.genSalt(10);
         user.userPassword = await bcrypt.hash(user.userPassword, salt);
         user.save((err, data) => {
@@ -31,8 +31,7 @@ export const signup = async (req, res) => {
             res.send(err);
           }
           res.status(200).send({
-            message: "User's Credentials have been added successfully!!!",
-            data: data,
+            message: "User's data have been added successfully!!!",
           });
         });
       }

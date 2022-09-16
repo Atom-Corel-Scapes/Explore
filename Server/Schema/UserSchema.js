@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
-// Signup Schema
-const signupSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     userFirstname: {
       type: String,
@@ -25,8 +24,8 @@ const signupSchema = new mongoose.Schema(
     userPassword: {
       type: String,
       required: true,
-      minLength: 8,
-      maxLength: 100,
+      min: 6,
+      max: 100,
     },
     userPhoneNumber: {
       type: Number,
@@ -37,4 +36,4 @@ const signupSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export const signupModel = new mongoose.model("signupDatas", signupSchema);
+export const userModel = new mongoose.model("usersDatas", userSchema);
