@@ -1,10 +1,9 @@
-import { signupModel } from "../Schema/UserSchema.js";
+import { userModel } from "../Schema/UserSchema.js";
 import bcrypt from "bcrypt";
 
 export const login = async (req, res) => {
-  // res.send("inside");
-  const query = req.query;
-  const user = await signupModel.findOne({ userEmail: query.userEmail });
+  const body = req.body;
+  const user = await userModel.findOne({ userEmail: body.userEmail });
   if (user) {
     const validPassword = await bcrypt.compare(
       query.userPassword,
