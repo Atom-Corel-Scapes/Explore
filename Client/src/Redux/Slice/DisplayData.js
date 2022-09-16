@@ -1,11 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const Displaydata = createAsyncThunk("displayData", async () => {
-    const data = fetch("").then((res) => {
+export const Displaydata = createAsyncThunk("displayData", async (page) => {
+    console.log(page);
+    const response = await fetch(`http://localhost:5000/authenticate/home?page=${page}&limit=2`).then((res) => {
         return res.json();
+        
     })
 
-    return Displaydata;
+    return response;
 });
 
 const DisplayDatareducer = createSlice(
@@ -23,6 +25,7 @@ const DisplayDatareducer = createSlice(
                 state.loading = true;
             },
             [Displaydata.fullfilled]: (state, action) => {
+               
                 state.Display = action.payload;
                 state.loading = false;
             },

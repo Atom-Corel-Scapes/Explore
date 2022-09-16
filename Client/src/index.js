@@ -7,7 +7,7 @@ import store from './Redux/Store/Store';
 import Main from './component/signup/Main/Main';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import LandinPage from './component/LandingPage/LandinPage';
+import LandinPage from './component/LandingPage/LandingPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
