@@ -1,5 +1,6 @@
 import React from 'react'
 import "./LandingPage.css"
+import { useEffect } from 'react'
 import Logo from "../Images/Explore.jpg"
 import logOutLogo from "../Images/carbon_power.svg"
 import { Link } from 'react-router-dom'
@@ -11,18 +12,14 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const LandingPage = () => {
     const dispatch = useDispatch();
-     const{Display,loading} =useSelector((state)=>state.Displaydata);
-     
-     useEffect(() => {
-      console.log(di)
-     }, [third])
-     
-
     const handelPageChange = (data) => {
-        const Page = data.selected;
-        dispatch(Displaydata(Page))
 
+        const page = data.selected;
+        dispatch (Displaydata(page))
+      
     }
+   const{Display,loading} =useSelector((state) => state.Displaydata);
+   console.log(Display);
 
     const handleDetailpage = (data) => {
         console.table(data);
@@ -54,8 +51,9 @@ const LandingPage = () => {
 
                     ))
                 }
+                    <div className="limit-input"> <input type="number" onClick={handelPageChange} placeholder='Limit ' ></input></div>
                 </div>
-                <div><div className='Search_block'>
+                <div className='Right-container'><div className='Search_block'>
                     <input type="text" placeholder='  Search *' className="Searchby-name" required={true}></input>
                     <input type="text" placeholder='  Search Tag *' className="searchby-tags" required={true}></input>
                     <div className='d-grid gap-2'><button className="btn_searchs">SEARCH</button></div>
@@ -70,6 +68,8 @@ const LandingPage = () => {
                         <button className='btn btn-primary'>SUBMIT</button>
                         <button>CLEAR</button>
                     </div>
+
+
                     <ReactPaginate
                         previousLabel={'<<'}
                         nextLabel={'>>'}
@@ -77,8 +77,9 @@ const LandingPage = () => {
                         pageCount={9}
                         marginPagesDisplayed={3}
                         pageRangeDisplayed={1}
-                        containerClassName={'pagination justify-content-center  '}
+                        containerClassName={'pagination justify-content-center '}
                         onPageChange={handelPageChange}
+
                         pageClassName={'page-item'}
                         previousClassName={'page-item'}
                         pageLinkClassName={'page-link'}
