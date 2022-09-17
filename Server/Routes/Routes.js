@@ -9,7 +9,7 @@ const Route = express.Router();
 Route.post("/signup", signup);
 Route.get("/login", login);
 Route.post("/upload", uploadData);
-Route.post("/home", home);
+Route.get("/home", home);
 
 
 export default Route;
