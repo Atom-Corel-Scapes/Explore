@@ -13,7 +13,6 @@ export const signup = createAsyncThunk("user", async (data) => {
             "userPhoneNumber": data.userPhoneNumber
         })
     }).then((res) => {
-
         return res.json();
     })
     return signupdata;

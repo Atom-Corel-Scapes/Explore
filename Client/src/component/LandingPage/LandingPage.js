@@ -8,28 +8,34 @@ import { mock } from '../mockdata/mockdata.js'
 import ReactPaginate from "react-paginate"
 import { Displaydata } from '../../Redux/Slice/DisplayData'
 import { useDispatch, useSelector } from 'react-redux'
+import { UploadData } from '../../Redux/Slice/UploadSlice'
 
 
 const LandingPage = () => {
     const dispatch = useDispatch();
-<<<<<<< HEAD
-    const { Display, loading } = useSelector((state) => state.Displaydata);
+    const upload = (e) => {
+        e.preventDefault();
+        const ele = e.target.elements
+        const placeName = ele[0].value;
+        const placeDescription = ele[1].value;
+        const placeTag = ele[2].value;
+        const placeImage = ele[3].files;
+        console.log({ placeName,placeDescription,placeTag,placeImage });
+        dispatch(UploadData({ placeName,placeDescription,placeTag,placeImage }))
+        ele[0].value = "";
+        ele[1].value = "";
+        ele[2].value = "";
+        ele[3].value = "";
+    }
 
-    useEffect(() => {
-        console.log(di)
-    }, [third])
-
-
-=======
->>>>>>> 6685e67f54c643b6398d8092237e403255cd711e
     const handelPageChange = (data) => {
 
         const page = data.selected;
-        dispatch (Displaydata(page))
-      
+        dispatch(Displaydata(page))
+
     }
-   const{Display,loading} =useSelector((state) => state.Displaydata);
-   console.log(Display);
+    const { Display, loading } = useSelector((state) => state.Displaydata);
+    console.log(Display);
 
     const handleDetailpage = (data) => {
         console.table(data);
@@ -69,15 +75,17 @@ const LandingPage = () => {
                     <div className='d-grid gap-2'><button className="btn_searchs">SEARCH</button></div>
 
                 </div>
-                    <div className='Upload_Block'>
-                        <div className='Upload_Header'>Create a Explore</div>
-                        <input type="text" placeholder='  Title *' className="Upload_Title" required={true}></input>
-                        <input type="text" placeholder='  Message *' className='Message_Text' required={true}></input>
-                        <input type="text" placeholder='  Tags *' required={true}></input>
-                        <input type="file" required={true}></input>
-                        <button className='btn btn-primary'>SUBMIT</button>
-                        <button>CLEAR</button>
-                    </div>
+                    <form onSubmit={upload}>
+                        <div className='Upload_Block'>
+                            <div className='Upload_Header'>Create a Explore</div>
+                            <input type="text" placeholder='  Title *' className="Upload_Title" required={true}></input>
+                            <input type="text" placeholder='  Message *' className='Message_Text' required={true}></input>
+                            <input type="text" placeholder='  Tags *' required={true}></input>
+                            <input type="file" required={true}></input>
+                            <button className='btn btn-primary' type='submit'>SUBMIT</button>
+                            <button type='reset'>CLEAR</button>
+                        </div>
+                    </form>
 
 
                     <ReactPaginate
@@ -89,7 +97,6 @@ const LandingPage = () => {
                         pageRangeDisplayed={1}
                         containerClassName={'pagination justify-content-center '}
                         onPageChange={handelPageChange}
-
                         pageClassName={'page-item'}
                         previousClassName={'page-item'}
                         pageLinkClassName={'page-link'}
@@ -100,7 +107,6 @@ const LandingPage = () => {
                         breakClassName={'page-item'}
                         breakLinkClassName={'page-link'} />
                 </div>
-
             </div></>
 
 

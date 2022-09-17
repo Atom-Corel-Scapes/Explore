@@ -16,6 +16,7 @@ const upload = multer({
 }).single("images");
 
 export const uploadData = (req, res) => {
+  console.log(req.body);
   upload(req, res, (err) => {
     if (err) {
       // res.send("there is an when uploading data");
@@ -27,7 +28,7 @@ export const uploadData = (req, res) => {
         placeTag: req.body.placeTag,
         placeDescription: req.body.placeDescription,
         placeImage: {
-          data: req.file.filename,
+          data: req.file,
           // contentType: "image/png",
         },
       });
