@@ -1,8 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
-import { Port } from "./Const.js";
+import { PORT, mongoUrl } from "./Const.js";
 import routes from "./Routes/Routes.js";
-import { mongoUrl } from "./Const.js";
 import bodyParser from "body-parser";
 
 const app = express();
@@ -18,6 +17,6 @@ mongoose
   .then(() => console.log("Database Connection successfully!!!"))
   .catch((err) => console.log("Database Connection Failed!!!", err.message));
 
-app.listen(Port, () => {
-  console.log(`Server listening at ${Port}`);
+app.listen(PORT, () => {
+  console.log(`Server listening at ${PORT}`);
 });
