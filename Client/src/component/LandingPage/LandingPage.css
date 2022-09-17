@@ -93,6 +93,7 @@
     margin-bottom: 29px;
     gap: 10px;
     row-gap: 29px;
+    position: relative;
     
 }
 
@@ -227,4 +228,14 @@ button {
 
 h3.card-title {
     margin-top: -10px;
+}
+.limit-input
+{
+  
+    width: 40px;
+    height: 10px;
+   position: absolute;
+   top: 95%;
+   left: 75%;
+   margin-bottom: 20px;
 }
