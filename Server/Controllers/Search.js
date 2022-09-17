@@ -1,4 +1,4 @@
-import { uploadModel } from "../Model/Model.js";
+import { uploadModel } from "../Schema/UploadSchema.js";
 
 export const searchData = (req, res) => {
     const ele = req.query;
