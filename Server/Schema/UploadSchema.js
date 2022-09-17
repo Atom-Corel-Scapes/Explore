@@ -18,6 +18,10 @@ const uploadSchema = new mongoose.Schema(
       data: Buffer,
       contentType: String,
     },
+    cardId :
+    {
+        type : String,
+    }
   },
   { timestamps: true }
 );

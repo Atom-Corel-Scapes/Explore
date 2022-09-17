@@ -1,3 +1,7 @@
-export const PORT = 5000;
+import dotenv from "dotenv";
 
-export const mongoUrl = "mongodb+srv://sriram:$Sriram2002.@explore.i2s1wtx.mongodb.net/Explore?retryWrites=true&w=majority";
+dotenv.config();
+
+export const PORT = process.env.PORT;
+
+export const mongoUrl = `mongodb+srv://${process.env.DB_UserName}:${process.env.DB_Password}@explore.i2s1wtx.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;

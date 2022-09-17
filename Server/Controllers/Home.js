@@ -1,21 +1,19 @@
 import { uploadModel } from "../Schema/UploadSchema.js";
 
 export const home = (req, res) => {
-  const { page , limit} = req.query;
-  console.log(req.query);
+  const { page = 1, limit = 8 } = req.query;
   uploadModel
     .find((err, data) => {
-      console.log(page+1)
       if (err) {
         console.log(err);
       } else {
         return res.send({
           status: 200,
           message: "places found",
-          data
+          data: data,
         });
       }
     })
     .limit(limit * 1)
-    .skip((page) * limit);
+    .skip((page - 1) * limit);
 };

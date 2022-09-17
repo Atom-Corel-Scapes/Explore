@@ -30,6 +30,7 @@ export const uploadData = (req, res) => {
           data: req.file.filename,
           // contentType: "image/png",
         },
+        cardId : Math.floor(1000 + Math.random() * 9000)
       });
       addImage.save((err, data) => {
         if (err) {
