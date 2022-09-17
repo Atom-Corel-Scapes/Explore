@@ -1,23 +1,24 @@
 import mongoose from "mongoose";
 // upload Schema
-const uploadSchema = new mongoose.Schema({
+const uploadSchema = new mongoose.Schema(
+  {
     placeName: {
       type: String,
-      required: true
+      required: true,
     },
     placeTag: {
       type: String,
-      requried: true
+      requried: true,
     },
     placeDescription: {
       type: String,
-      requried: true
+      requried: true,
     },
     placeImage: {
       data: Buffer,
-      contentType: String
-    }
+      contentType: String,
+    },
   },
-    { timestamps: true }
-  )
-  export const uploadModel = new mongoose.model('upload', uploadSchema);
+  { timestamps: true }
+);
+export const uploadModel = new mongoose.model("upload", uploadSchema);
