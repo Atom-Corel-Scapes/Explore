@@ -61,3 +61,5 @@ const uploadSchema = new mongoose.Schema({
   { timestamps: true }
 )
 export const uploadModel = new mongoose.model('upload', uploadSchema);
+
+
