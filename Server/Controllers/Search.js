@@ -12,7 +12,7 @@ export const searchData = (req, res) => {
                 return res.send(data);
             }
             else {
-                res.status(400).send("please enter correct tag or place")
+               return res.status(400).send("please enter correct tag or place")
             }
         }
     })

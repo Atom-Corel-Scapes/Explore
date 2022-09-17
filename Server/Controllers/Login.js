@@ -1,4 +1,4 @@
-import { userModel } from "../Schema/UserSchema.js";
+import { signupModel } from "../Schema/UserSchema.js";
 import bcrypt from "bcrypt";
 
 export const login = async (req, res) => {

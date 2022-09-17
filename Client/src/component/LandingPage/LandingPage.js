@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { mock } from '../mockdata/mockdata.js'
 import ReactPaginate from "react-paginate"
 import { Displaydata } from '../../Redux/Slice/DisplayData'
+import {SearchData} from "../../Redux/Slice/SearchSlice"
 import { useDispatch, useSelector } from 'react-redux'
 import { UploadData } from '../../Redux/Slice/UploadSlice'
 
@@ -28,6 +29,11 @@ const LandingPage = () => {
         ele[3].value = "";
     }
 
+
+  useEffect(() => {
+    dispatch(Displaydata(1));
+  }, [])
+  
     const handelPageChange = (data) => {
 
         const page = data.selected;
@@ -37,9 +43,33 @@ const LandingPage = () => {
     const { Display, loading } = useSelector((state) => state.Displaydata);
     console.log(Display);
 
-    const handleDetailpage = (data) => {
-        console.table(data);
+   
+
+    const handleDetailpage = (mock) => {
+        console.log();
     }
+
+    const handleSearch = (e) => { 
+    
+        
+            e.preventDefault();
+            const ele = e.target.elements;
+            const location = ele[0].value;
+            const tag = ele[1].value;
+            ele[0].value ="";
+            ele[1].value ="";  
+            console.log(location,tag);
+            dispatch(SearchData({location, tag}));
+           
+}
+const{data,loadings} =useSelector((state) => state.Search);
+console.log(data);
+  
+    
+  
+
+
+    
     return (
         <>
             <div className='NavBarConatiner'>
@@ -55,8 +85,8 @@ const LandingPage = () => {
                 <div className='row row-cols-1 row-cols-md-3 g-4' id='cards'>  {
                     mock.length > 0 && mock.map((obj) =>
                     (
-                        <div className='col' onClick={handleDetailpage}>
-                            <div className='card h-100'>
+                        <div className='col'>
+                            <div className='card h-100'  onClick={handleDetailpage}>
                                 <img src={obj.img} className="card-img-top" alt='img'></img>
                                 <div className='card-body'>
                                     <p className='Tags'>{obj.tags}</p><h3 className='card-title'>{obj.name}</h3>
@@ -67,12 +97,18 @@ const LandingPage = () => {
 
                     ))
                 }
-                    <div className="limit-input"> <input type="number" onClick={handelPageChange} placeholder='Limit ' ></input></div>
+                    <div className="limit-input"> <input type="number" placeholder='Limit ' ></input></div>
                 </div>
-                <div className='Right-container'><div className='Search_block'>
-                    <input type="text" placeholder='  Search *' className="Searchby-name" required={true}></input>
+                <div className='Right-container'>
+                    
+                    
+                        <form  onSubmit={handleSearch}>
+                        <div className='Search_block'><input type="text" placeholder='  Search *' className="Searchby-name" required={true}></input>
                     <input type="text" placeholder='  Search Tag *' className="searchby-tags" required={true}></input>
                     <div className='d-grid gap-2'><button className="btn_searchs">SEARCH</button></div>
+                    </div>
+                    </form>
+                    
 
                 </div>
                     <form onSubmit={upload}>
@@ -107,7 +143,7 @@ const LandingPage = () => {
                         breakClassName={'page-item'}
                         breakLinkClassName={'page-link'} />
                 </div>
-            </div></>
+        </>
 
 
     )
