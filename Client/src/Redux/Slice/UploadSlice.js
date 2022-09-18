@@ -7,8 +7,8 @@ console.log(data.placeName);
             headers: {"Content-Type": "multipart/form-data; boundary=------WebKitFormBoundary2lZSUsxEA3X5jpYD"},
             body: JSON.stringify({
                 "placeName":data.placeName,
-                "placeTag":data.placeTag,
                 "placeDescription":data.placeDescription,
+                "placeTag":data.placeTag,
                 "images":data.placeImage
                 
             })
@@ -23,20 +23,20 @@ export const UploadReducer = createSlice({
     name: 'uploadData',
     initialState: {
         Details: [],
-        loading: false
+        loadinguser: false
     },
     reducer: {},
     extraReducers: {
         [UploadData.pending]: (state, action) => {
-            state.loading = true;
+            state.loadinguser = true;
         },
         [UploadData.fulfilled]: (state, action) => {
             console.log(action.payload);
             state.loginData = action.payload;
-            state.loading = false;
+            state.loadinguser = false;
         },
         [UploadData.rejected]: (state, action) => {
-
+            state.loadinguser = false;
         }
     }
 })

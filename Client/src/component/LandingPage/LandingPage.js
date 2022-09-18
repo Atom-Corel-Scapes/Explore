@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./LandingPage.css"
 import { useEffect } from 'react'
 import Logo from "../Images/Explore.jpg"
 import logOutLogo from "../Images/carbon_power.svg"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { mock } from '../mockdata/mockdata.js'
 import ReactPaginate from "react-paginate"
 import { Displaydata } from '../../Redux/Slice/DisplayData'
-import {SearchData} from "../../Redux/Slice/SearchSlice"
+import { SearchData } from "../../Redux/Slice/SearchSlice"
 import { useDispatch, useSelector } from 'react-redux'
 import { UploadData } from '../../Redux/Slice/UploadSlice'
+import moment from "moment"
 
 
 const LandingPage = () => {
     const dispatch = useDispatch();
+    const Navigate = useNavigate();
+    const [mainData, setData] = useState("");
     const upload = (e) => {
         e.preventDefault();
         const ele = e.target.elements
@@ -21,19 +24,23 @@ const LandingPage = () => {
         const placeDescription = ele[1].value;
         const placeTag = ele[2].value;
         const placeImage = ele[3].files;
-        console.log({ placeName,placeDescription,placeTag,placeImage });
-        dispatch(UploadData({ placeName,placeDescription,placeTag,placeImage }))
+        console.log({ placeName, placeDescription, placeTag, placeImage });
+        dispatch(UploadData({ placeName, placeDescription, placeTag, placeImage }))
         ele[0].value = "";
         ele[1].value = "";
         ele[2].value = "";
         ele[3].value = "";
     }
+    const { Details, loadinguser } = useSelector((state) => state.uploaddata);
+    useEffect(() => {
 
+        setData(Details);
+    }, [Details])
 
-  useEffect(() => {
-    dispatch(Displaydata(1));
-  }, [])
-  
+    useEffect(() => {
+        dispatch(Displaydata(1));
+    }, [])
+
     const handelPageChange = (data) => {
 
         const page = data.selected;
@@ -41,35 +48,38 @@ const LandingPage = () => {
 
     }
     const { Display, loading } = useSelector((state) => state.Displaydata);
+    useEffect(() => {
+        setData(Display)
+    }, [Display])
     console.log(Display);
 
-   
 
-    const handleDetailpage = (mock) => {
-        console.log();
+
+    const handleDetailpage = (e) => {
+
+
+        console.log(e);
     }
 
-    const handleSearch = (e) => { 
-    
-        
-            e.preventDefault();
-            const ele = e.target.elements;
-            const location = ele[0].value;
-            const tag = ele[1].value;
-            ele[0].value ="";
-            ele[1].value ="";  
-            console.log(location,tag);
-            dispatch(SearchData({location, tag}));
-           
-}
-const{data,loadings} =useSelector((state) => state.Search);
-console.log(data);
-  
-    
-  
+    const handleSearch = (e) => {
 
 
-    
+        e.preventDefault();
+        const ele = e.target.elements;
+        const location = ele[0].value;
+        const tag = ele[1].value;
+        ele[0].value = "";
+        ele[1].value = "";
+        console.log(location, tag);
+        dispatch(SearchData({ location, tag }));
+
+    }
+    const { data, loadings } = useSelector((state) => state.Search);
+    console.log(data);
+
+    console.log(Display.placeImag)
+
+
     return (
         <>
             <div className='NavBarConatiner'>
@@ -83,34 +93,41 @@ console.log(data);
             </div>
             <div className='Main_Container'>
                 <div className='row row-cols-1 row-cols-md-3 g-4' id='cards'>  {
-                    mock.length > 0 && mock.map((obj) =>
-                    (
-                        <div className='col'>
-                            <div className='card h-100'  onClick={handleDetailpage}>
-                                <img src={obj.img} className="card-img-top" alt='img'></img>
-                                <div className='card-body'>
-                                    <p className='Tags'>{obj.tags}</p><h3 className='card-title'>{obj.name}</h3>
-                                    <p className='card-text'>{obj.discripition}</p></div>
+                    mainData.length > 0 && mainData.map((obj,) => {
+
+
+
+                        const Base64String = btoa(String.fromCharCode(...new Uint8Array(Display[1].placeImage.data.data)));
+
+                        return (<div className='col' key={obj._id} onClick={(e) => handleDetailpage(e)}>
+                            <div className='card h-100'  >
+                                <img src={`data:image/png;base64,${Base64String}`} className="card-img-top" />
+                                <div className='card-body' >
+                                    <p className='Tags'  >{obj.placeTag}</p><h3 className='card-title'  >{obj.placeName}</h3>
+                                    <p className='card-text' >{obj.placeDescription}</p>
+                                     <moment >({obj.createdAt})</moment></div>
 
                             </div>
                         </div>
+                        )
 
-                    ))
+                    }
+                    )
                 }
                     <div className="limit-input"> <input type="number" placeholder='Limit ' ></input></div>
                 </div>
                 <div className='Right-container'>
-                    
-                    
-                        <form  onSubmit={handleSearch}>
-                        <div className='Search_block'><input type="text" placeholder='  Search *' className="Searchby-name" required={true}></input>
-                    <input type="text" placeholder='  Search Tag *' className="searchby-tags" required={true}></input>
-                    <div className='d-grid gap-2'><button className="btn_searchs">SEARCH</button></div>
-                    </div>
-                    </form>
-                    
 
-                </div>
+
+                    <form onSubmit={handleSearch}>
+                        <div className='Search_block'><input type="text" placeholder='  Search *' className="Searchby-name" required={true}></input>
+                            <input type="text" placeholder='  Search Tag *' className="searchby-tags" required={true}></input>
+                            <div className='d-grid gap-2'><button className="btn_searchs">SEARCH</button></div>
+                        </div>
+                    </form>
+
+
+
                     <form onSubmit={upload}>
                         <div className='Upload_Block'>
                             <div className='Upload_Header'>Create a Explore</div>
@@ -143,7 +160,7 @@ console.log(data);
                         breakClassName={'page-item'}
                         breakLinkClassName={'page-link'} />
                 </div>
-        </>
+            </div></>
 
 
     )

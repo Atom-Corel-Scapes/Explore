@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const Displaydata = createAsyncThunk("displayData", async (page) => {
 
-    const response = fetch(`http://localhost:5000/authenticate/home?page=${page}&limit=2`).then((res) => {
+    const response = fetch(`http://localhost:5000/authenticate/home?page=${page}&limit=5`).then((res) => {
 
         return res.json();
 
