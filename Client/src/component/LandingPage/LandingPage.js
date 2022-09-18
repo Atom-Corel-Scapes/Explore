@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import Logo from "../Images/Explore.jpg"
 import logOutLogo from "../Images/carbon_power.svg"
 import { Link, useNavigate } from 'react-router-dom'
-import { mock } from '../mockdata/mockdata.js'
+
 import ReactPaginate from "react-paginate"
 import { Displaydata } from '../../Redux/Slice/DisplayData'
 import { SearchData } from "../../Redux/Slice/SearchSlice"
