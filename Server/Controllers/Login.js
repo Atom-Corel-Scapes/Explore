@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { signupModel } from "../Model/Model.js";
 import bcrypt from "bcrypt";
 
@@ -8,6 +9,17 @@ export const login = async (req, res) => {
   if (user) {
     const validPassword = await bcrypt.compare(
       query.userPassword,
+=======
+import { signupModel } from "../Schema/UserSchema.js";
+import bcrypt from "bcrypt";
+
+export const login = async (req, res) => {
+  const body = req.body;
+  const user = await userModel.findOne({ userEmail: body.userEmail });
+  if (user) {
+    const validPassword = await bcrypt.compare(
+      body.userPassword,
+>>>>>>> 381ff121f816010acc2982b1562a136a8abf7a31
       user.userPassword
     );
     if (validPassword) {
