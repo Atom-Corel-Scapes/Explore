@@ -22,7 +22,7 @@ root.render(
           <Route path="/" element={<App />} exact ></Route>
           <Route path="/Signup" element={<Main />}></Route>
           <Route path="/LandingPage" element={<LandinPage />}></Route>
-          <Route path='/LandingPage/Detailpage' element={<Detailpage />}></Route>
+          <Route path="/LandingPage/Detailpage" element={<Detailpage />}></Route>
         </Routes>
       </BrowserRouter>
 
