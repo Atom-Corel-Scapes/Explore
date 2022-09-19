@@ -1,16 +1,13 @@
-
 import './App.css';
 import NavBar from './component/navBar/NavBar';
 import Login from './component/Login/Login';
 
-
 function App() {
-    return (
+  return (
     <div className="App">
-        <NavBar />
-        <Login />
+      <NavBar />
+      <Login />
     </div>
   );
 }
-
 export default App;

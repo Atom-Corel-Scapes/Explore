@@ -1,17 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const UploadData = createAsyncThunk('uploadData', async (data) => {
-console.log(data.placeName);
-    const uploaddata = fetch("http://localhost:5000/authenticate/upload",{
-            method: "post",
-            headers: {"Content-Type": "multipart/form-data; boundary=------WebKitFormBoundary2lZSUsxEA3X5jpYD"},
-            body: JSON.stringify({
-                "placeName":data.placeName,
-                "placeDescription":data.placeDescription,
-                "placeTag":data.placeTag,
-                "images":data.placeImage
-                
-            })
+   
+    console.log(data.placeName);
+   
+    const uploaddata = fetch("http://localhost:5000/authenticate/upload", {
+        method: "post",
+        headers: { "Content-Type": "multipart/form-data; boundary=------WebKitFormBoundary2lZSUsxEA3X5jpYD" },
+        body: JSON.stringify({
+            "placeName": data.placeName,
+            "placeDescription": data.placeDescription,
+            "placeTag": data.placeTag,
+            "images": data.placeImage
+
+        })
     }).then((res) => {
         console.log(res.json());
         return res.json();

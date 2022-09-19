@@ -37,7 +37,7 @@
     align-items: center;
     justify-content: center;
     gap: 30px;
-    
+
 }
 
 .User_image_Block {
@@ -65,27 +65,28 @@
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
 }
-.col:hover
-{
-    transition:0.5s;
-    transform: scale(1.12,1.12);
-    z-index:2;
+
+.col:hover {
+    transition: 0.5s;
+    transform: scale(1.12, 1.12);
+    z-index: 2;
     box-shadow: none;
     border-radius: initial;
 }
 
-.Searchby-name:focus
-{
+.Searchby-name:focus {
     background-color: black;
     color: white;
     padding-left: 15px;
 
 }
-.searchby-tags:focus{
+
+.searchby-tags:focus {
     background-color: black;
     color: white;
     padding-left: 15px;
 }
+
 #cards {
     width: 1100px;
     margin-top: 40px;
@@ -94,7 +95,7 @@
     gap: 10px;
     row-gap: 29px;
     position: relative;
-    
+
 }
 
 .card-title {
@@ -229,13 +230,13 @@ button {
 h3.card-title {
     margin-top: -10px;
 }
-.limit-input
-{
-  
+
+.limit-input {
+
     width: 40px;
     height: 10px;
-   position: absolute;
-   top: 95%;
-   left: 75%;
-   margin-bottom: 20px;
+    position: absolute;
+    top: 95%;
+    left: 75%;
+    margin-bottom: 20px;
 }
