@@ -3,8 +3,7 @@ import "./LandingPage.css"
 import { useEffect } from 'react'
 import Logo from "../Images/Explore.jpg"
 import logOutLogo from "../Images/carbon_power.svg"
-import { Link, useNavigate } from 'react-router-dom'
-
+import {useNavigate } from 'react-router-dom'
 import ReactPaginate from "react-paginate"
 import { Displaydata } from '../../Redux/Slice/DisplayData'
 import { SearchData } from "../../Redux/Slice/SearchSlice"
@@ -74,10 +73,10 @@ const LandingPage = () => {
         dispatch(SearchData({ location, tag }));
 
     }
-    const { data, loadings } = useSelector((state) => state.Search);
-    console.log(data);
+         const { data, loadings } = useSelector((state) => state.Search);
+                   console.log(data);
 
-    console.log(Display.placeImag)
+               console.log(Display.placeImag)
 
 
     return (
@@ -114,8 +113,7 @@ const LandingPage = () => {
                     }
                     )
                 }
-                    <div className="limit-input"> <input type="number" placeholder='Limit ' ></input></div>
-                </div>
+                          </div>
                 <div className='Right-container'>
 
 
@@ -142,6 +140,8 @@ const LandingPage = () => {
 
 
                     <ReactPaginate
+                    
+                    
                         previousLabel={'<<'}
                         nextLabel={'>>'}
                         breakLabel={'..'}

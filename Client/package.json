@@ -12,10 +12,7 @@
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-<<<<<<< HEAD
-=======
     "react-paginate": "^8.1.3",
->>>>>>> 381ff121f816010acc2982b1562a136a8abf7a31
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",

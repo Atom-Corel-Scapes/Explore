@@ -1,7 +1,7 @@
 import { uploadModel } from "../Schema/UploadSchema.js";
 
 export const home = (req, res) => {
-  const { page = 1, limit = 8 } = req.query;
+  const { page, limit } = req.query;
   uploadModel
     .find((err, data) => {
       if (err) {
@@ -15,5 +15,5 @@ export const home = (req, res) => {
       }
     })
     .limit(limit * 1)
-    .skip((page - 1) * limit);
+    .skip((page) * limit);
 };

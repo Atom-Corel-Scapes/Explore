@@ -5,8 +5,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+.signup-success{
+    font-size: 20px;
+    color: rgb(117, 201, 117);
+   
 
-.SignupContainer {
+}
+
+.singup-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 90px;
+}
+.singup-container--form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,10 +29,7 @@
     width: 440px;
     height: 580px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-left: 500px;
-    margin-top: 96px;
     border-radius: 2px;
-
 }
 
 .signup {
@@ -147,6 +159,6 @@
 }
 
 input {
-    text-align:left;
+    text-align: left;
     padding: 5px;
 }

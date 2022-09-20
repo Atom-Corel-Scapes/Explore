@@ -1,27 +1,30 @@
 import { uploadModel } from "../Schema/UploadSchema.js";
-import { searchData } from "./Search.js";
 
- export const postData = (req,res)=>{
-    const details=req.query.id;
-    const postDetails= uploadModel.find({suggestions : { $all: [
-     { $eleMatch: { placeTag: details.placeTag } }, 
-     { $eleMatch: { placeName:details.placeName} } 
-    ] 
+
+export const postData = (req, res) => {
+    const cardId = req.query;
+    const postDetailInfo = {};
+    uploadModel.find({ cardId: cardId.cardId }, (err, cardData) => {
+        if (cardData.length) {
+            postDetailInfo.postInfo = cardData[0];
+            uploadModel.find({ placeTag: cardData[0].placeTag }, (err, tagData) => {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    if (tagData.length) {
+                        postDetailInfo.suggestions = tagData;
+                        return res.status(200).send(postDetailInfo);
+                    }
+                    else {
+                        return res.status(400).send(err);
+                    }
+                }
+
+            })
+
+        }
+
+    })
+
 }
- });
 
-searchData.suggestions[
-    {
-       placeTag:"#ooty",
-       placeName:"ooty"
-    },
-    {
-        placeTag:"GMX",
-        placeName:"CBE"
-    },
-    {
-        placeTag:"fun-mall",
-        placeName:"CBE"
-    }
-]
- }

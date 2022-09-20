@@ -1,8 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import axios from "axios";
 
 export const signup = createAsyncThunk("user", async (data) => {
+
     const signupdata = fetch("http://localhost:5000/authenticate/signup", {
+
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
