@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import VectorLogo from "../Images/Vector.svg"
 import google from "../Images/google-logo-transparent-alphabet-4.png"
 import { signup } from '../../Redux/Slice/signupSlice'
@@ -11,17 +11,24 @@ const Signup = () => {
 
     const dispatch = useDispatch();
     const Navigate = useNavigate();
-    const { data, loading } = useSelector((state) => state.sigupdata)
+    const { data, loading } = useSelector((state) => state.sigupdata);
+    const [loginStatus, setLoginStatus] = useState({status: 0, message: ''});
+
     useEffect(() => {
-        if (data.message) {
-            window.alert(" signedup")
-            Navigate('/LandingPage')
-        } else {
-            console.log("hi")
+        if (data.response === 'success') {
+            setLoginStatus({
+                status: 1,
+                message: 'success'
+            })
+            // Navigate('/LandingPage')
+        } else if(data.response === 'failure') {
+            setLoginStatus({
+                status: 1,
+                message: 'failure'
+            })
         }
 
     }, [data])
-    console.log(data)
     const enter = (e) => {
         e.preventDefault();
         const userFirstname = e.target.elements[0].value;
@@ -40,8 +47,18 @@ const Signup = () => {
 
 
     return (
-        <form className="SignupContainer" onSubmit={enter}>
-
+        <>
+       
+        <div className='singup-container'>
+        {
+            loginStatus.status>0 && 
+                <div className='signup-status--container'>
+                {loginStatus.message === 'success' && <span className="signup-success">Signup Success!! Signin now</span>}
+                {loginStatus.message === 'failure' &&<span className="signup-failure">Check the user date given</span>}
+                </div>
+        }
+        
+        <form className="singup-container--form" onSubmit={enter}>
             <img className='signuplogo' src={VectorLogo} />
             <p className='signup' > SIGN UP </p>
             <div className="name" >
@@ -55,6 +72,9 @@ const Signup = () => {
             <button className='Sign-in-btn-glg' > < img className='Googlelogo' src={google} />GOOGLE SIGN UP</button >
             <p className='Login-link' > Already Have An Account ? <Link to="/" >LOGIN</Link></p >
         </form>
+        </div>
+        </>
+        
 
 
     )

@@ -38,7 +38,7 @@ export const uploadData = (req, res) => {
           res.send(err);
         }
         res.status(200).send({
-          message: "Posted sucessfully!!!",
+          message: "Article uploaded sucessfully!!!",
         });
       });
     }

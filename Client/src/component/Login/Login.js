@@ -34,10 +34,6 @@ const Login = () => {
 
   }, [loginData])
 
-
-
-
-
   return (
     <form className='form' onSubmit={signIn}>
       <div className="LoginContainer">

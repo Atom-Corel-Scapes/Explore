@@ -5,6 +5,7 @@ import routes from "./Routes/Routes.js";
 import bodyParser from "body-parser";
 import cors from "cors";
 
+
 const app = express();
 app.use(cors());
 
@@ -23,3 +24,4 @@ mongoose
 app.listen(PORT, () => {
   console.log(`Server listening at ${PORT}`);
 });
+

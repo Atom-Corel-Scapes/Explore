@@ -1,7 +1,7 @@
 import React from "react";
 // import { mockData } from "../mockdata/detailpageMockdata";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { card } from "react-bootstrap";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import { card } from "react-bootstrap";
 import "./DetailPage.css";
 const DetailsPage = () => {
   return (

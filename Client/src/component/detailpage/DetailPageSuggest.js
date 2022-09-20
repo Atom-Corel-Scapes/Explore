@@ -1,7 +1,5 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { card } from "react-bootstrap";
-import "./detailPageSuggest.css";
+import "./DetailPageSuggest.css";
 
 const PostSuggest = () => {
   return (
