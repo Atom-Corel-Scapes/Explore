@@ -1,11 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const SearchData = createAsyncThunk("Searchdata", async (data) => {
-    const response = fetch("").then((res) => {
+
+    const response = fetch(`http://localhost:5000/authenticate/search?placeTag=${data.tag}&placeName=${data.location}`).then((res) => {
         return res.json();
     }
     );
-    return SearchData;
+
+    return response;
 })
 
 
@@ -13,19 +15,19 @@ const SearchedData = createSlice({
     name: "Searchbyname",
     initialState: {
         data: [],
-        loading: false
+        loadings: false
     },
-    reducers: {},
-    extraReducer: {
+    reducer: {},
+    extraReducers: {
         [SearchData.pending]: (state, action) => {
-            state.loading = true;
+            state.loadings = true;
         },
-        [SearchData.pending]: (state, action) => {
+        [SearchData.fulfilled]: (state, action) => {
             state.data = action.payload;
-            state.loading = false;
+            state.loadings = false;
         },
-        [SearchData.pending]: (state, action) => {
-            state.loading = false;
+        [SearchData.rejected]: (state, action) => {
+            state.loadings = false;
         }
 
     }

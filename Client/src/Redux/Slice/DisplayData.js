@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const Displaydata = createAsyncThunk("displayData", async (page) => {
 
-    const response = fetch(`http://localhost:5000/authenticate/home?page=${page}&limit=2`).then((res) => {
+    const response = fetch(`http://localhost:5000/authenticate/home?page=${page}&limit=5`).then((res) => {
 
         return res.json();
 
@@ -10,11 +10,11 @@ export const Displaydata = createAsyncThunk("displayData", async (page) => {
     })
     console.log(response);
     return response;
-   
 
-});
 
- export const DisplayDatareducer = createSlice(
+} );
+
+export const DisplayDatareducer = createSlice(
     {
         name: "displayData",
         initialState:
@@ -29,7 +29,7 @@ export const Displaydata = createAsyncThunk("displayData", async (page) => {
                 state.loading = true;
             },
             [Displaydata.fulfilled]: (state, action) => {
-              
+
                 state.Display = action.payload.data;
                 state.loading = false;
             },

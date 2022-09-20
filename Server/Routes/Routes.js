@@ -1,14 +1,12 @@
 import express from "express";
 import { signup } from "../Controllers/Signup.js";
 import { login } from "../Controllers/Login.js";
-import { searchData } from "../Controllers/Search.js";
 import { uploadData } from "../Controllers/Upload.js";
 import { home } from "../Controllers/Home.js";
-<<<<<<< Updated upstream
-=======
+
 import { searchData } from "../Controllers/Search.js";
 import { postData } from "../Controllers/postDetails.js";
->>>>>>> Stashed changes
+
 
 const Route = express.Router();
 
