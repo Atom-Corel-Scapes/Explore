@@ -9,6 +9,7 @@ export const login = async (req, res) => {
       body.userPassword,
       user.userPassword
     );
+    
     if (validPassword) {
       res.status(200).send({ message: "Login success" });
     } else {

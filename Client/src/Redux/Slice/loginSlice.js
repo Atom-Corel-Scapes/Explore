@@ -18,6 +18,7 @@ export const logReducer = createSlice({
             state.loading = true;
         },
         [getUser.fulfilled]: (state, action) => {
+            console.log(action.payload);
             state.loginData = action.payload.data;
             state.loading = false;
         },

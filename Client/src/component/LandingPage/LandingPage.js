@@ -3,7 +3,7 @@ import "./LandingPage.css"
 import { useEffect } from 'react'
 import Logo from "../Images/Explore.jpg"
 import logOutLogo from "../Images/carbon_power.svg"
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ReactPaginate from "react-paginate"
 import { Displaydata } from '../../Redux/Slice/DisplayData'
 import { SearchData } from "../../Redux/Slice/SearchSlice"
@@ -56,8 +56,10 @@ const LandingPage = () => {
 
     const handleDetailpage = (e) => {
 
+        const ID = e.target.id;
+        console.log(ID);
 
-        console.log(e);
+
     }
 
     const handleSearch = (e) => {
@@ -73,10 +75,10 @@ const LandingPage = () => {
         dispatch(SearchData({ location, tag }));
 
     }
-         const { data, loadings } = useSelector((state) => state.Search);
-                   console.log(data);
+    const { data, loadings } = useSelector((state) => state.Search);
+    console.log(data);
 
-               console.log(Display.placeImag)
+    console.log(Display.placeImag)
 
 
     return (
@@ -101,10 +103,10 @@ const LandingPage = () => {
                         return (<div className='col' key={obj._id} onClick={(e) => handleDetailpage(e)}>
                             <div className='card h-100'  >
                                 <img src={`data:image/png;base64,${Base64String}`} className="card-img-top" />
-                                <div className='card-body' >
+                                <div className='card-body' id={obj._id} >
                                     <p className='Tags'  >{obj.placeTag}</p><h3 className='card-title'  >{obj.placeName}</h3>
                                     <p className='card-text' >{obj.placeDescription}</p>
-                                     <moment >({obj.createdAt})</moment></div>
+                                    <moment >({obj.createdAt})</moment></div>
 
                             </div>
                         </div>
@@ -113,7 +115,7 @@ const LandingPage = () => {
                     }
                     )
                 }
-                          </div>
+                </div>
                 <div className='Right-container'>
 
 
@@ -140,8 +142,8 @@ const LandingPage = () => {
 
 
                     <ReactPaginate
-                    
-                    
+
+
                         previousLabel={'<<'}
                         nextLabel={'>>'}
                         breakLabel={'..'}
