@@ -3,7 +3,7 @@ import "./LandingPage.css"
 import { useEffect } from 'react'
 import Logo from "../Images/Explore.jpg"
 import logOutLogo from "../Images/carbon_power.svg"
-import { useNavigate } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 import ReactPaginate from "react-paginate"
 import { Displaydata } from '../../Redux/Slice/DisplayData'
 import { SearchData } from "../../Redux/Slice/SearchSlice"
@@ -37,7 +37,7 @@ const LandingPage = () => {
     }, [Details])
 
     useEffect(() => {
-        dispatch(Displaydata(1));
+        dispatch(Displaydata(0));
     }, [])
 
     const handelPageChange = (data) => {
@@ -58,7 +58,10 @@ const LandingPage = () => {
 
         const ID = e.target.id;
         console.log(ID);
-
+        if(ID)
+        {
+            Navigate("/LandingPage/Detailpage")
+        }
 
     }
 
@@ -98,12 +101,12 @@ const LandingPage = () => {
 
 
 
-                        const Base64String = btoa(String.fromCharCode(...new Uint8Array(Display[1].placeImage.data.data)));
+                        //const Base64String = btoa(String.fromCharCode(...new Uint8Array(Display[1].placeImage.data.data)));
 
-                        return (<div className='col' key={obj._id} onClick={(e) => handleDetailpage(e)}>
+                        return (<div className='col' id={obj.cardID} onClick={(e) => handleDetailpage(e)}>
                             <div className='card h-100'  >
-                                <img src={`data:image/png;base64,${Base64String}`} className="card-img-top" />
-                                <div className='card-body' id={obj._id} >
+                                <img id={obj.cardId} className="card-img-top" />
+                                <div className='card-body' id={obj.cardId} >
                                     <p className='Tags'  >{obj.placeTag}</p><h3 className='card-title'  >{obj.placeName}</h3>
                                     <p className='card-text' >{obj.placeDescription}</p>
                                     <moment >({obj.createdAt})</moment></div>

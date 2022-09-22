@@ -3,6 +3,7 @@ import { uploadModel } from "../Schema/UploadSchema.js";
 
 export const postData = (req, res) => {
     const cardId = req.query;
+    console.log(cardId);
     const postDetailInfo = {};
     uploadModel.find({ cardId: cardId.cardId }, (err, cardData) => {
         if (cardData.length) {

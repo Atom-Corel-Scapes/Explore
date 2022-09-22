@@ -39,9 +39,12 @@
 }
 
 .outer {
-    margin-left: 30px;
+    margin-left: 00px;
     margin-top: 0px;
     margin-bottom: 0px;
+    box-shadow: 0 0 15px #B0ACAC;
+    padding-bottom: 13px;
+    padding-left: 30px;
 }
 
 .text {
