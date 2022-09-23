@@ -6,7 +6,7 @@ const Detailpage = () => {
     <div>
       <DetailsPage />
       <DetailPageSuggest />
-      </div>
+    </div>
   )
 }
 

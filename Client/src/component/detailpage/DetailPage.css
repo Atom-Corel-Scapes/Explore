@@ -2,7 +2,23 @@
     padding: 0px;
     margin: 0px;
 } */
-
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    height: 67.27px;
+}
+.back-btn
+{
+    background: #006FBB;
+    color: #FFFFFF;
+    width: 100px;
+    height: 41px;
+    border:none;
+    border-radius: 5px;
+    margin-right: 11px;
+}
 .card {
     flex-direction: row;
     display: flex;

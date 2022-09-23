@@ -3,14 +3,16 @@ import "./LandingPage.css"
 import { useEffect } from 'react'
 import Logo from "../Images/Explore.jpg"
 import logOutLogo from "../Images/carbon_power.svg"
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ReactPaginate from "react-paginate"
 import { Displaydata } from '../../Redux/Slice/DisplayData'
 import { SearchData } from "../../Redux/Slice/SearchSlice"
 import { useDispatch, useSelector } from 'react-redux'
 import { UploadData } from '../../Redux/Slice/UploadSlice'
-import moment from "moment"
-
+import { detailData } from '../../Redux/Slice/DetailData'
+import { suggestion } from '../../Redux/Slice/DetailSuggest'
+import { Link } from 'react-router-dom'
+import Moment from "react-moment"
 
 const LandingPage = () => {
     const dispatch = useDispatch();
@@ -55,18 +57,24 @@ const LandingPage = () => {
 
 
     const handleDetailpage = (e) => {
-
+        //e.preventDefault()
         const ID = e.target.id;
         console.log(ID);
-        if(ID)
-        {
-            Navigate("/LandingPage/Detailpage")
-        }
+
+        mainData.length > 0 && mainData.map((obj) => {
+            if (obj.cardId === ID) {
+                const Tag = obj.placeTag;
+                console.log(Tag);
+                dispatch(detailData({ ID, Tag }))
+                dispatch(suggestion({ ID, Tag }))
+                Navigate("/LandingPage/Detailpage")
+            }
+        })
+
 
     }
 
     const handleSearch = (e) => {
-
 
         e.preventDefault();
         const ele = e.target.elements;
@@ -78,10 +86,10 @@ const LandingPage = () => {
         dispatch(SearchData({ location, tag }));
 
     }
-    const { data, loadings } = useSelector((state) => state.Search);
-    console.log(data);
+    // const { data, loadings } = useSelector((state) => state.Search);
+    // console.log(data);
 
-    console.log(Display.placeImag)
+    // console.log(Display.placeImag)
 
 
     return (
@@ -92,25 +100,26 @@ const LandingPage = () => {
                     <div className='User_image_Block'>
                         <img src={logOutLogo} className='user_Image'></img></div>
                     <p className='UserName'>User</p>
-                    <button className='Btn-signin-landing'><img src={logOutLogo}></img></button></div>
+                    <Link to="/" ><button className='Btn-signin-landing'><img src={logOutLogo}></img></button></Link>
+                </div>
 
             </div>
             <div className='Main_Container'>
                 <div className='row row-cols-1 row-cols-md-3 g-4' id='cards'>  {
-                    mainData.length > 0 && mainData.map((obj,) => {
-
+                    mainData.length > 0 && mainData.map((obj, index) => {
 
 
                         //const Base64String = btoa(String.fromCharCode(...new Uint8Array(Display[1].placeImage.data.data)));
 
-                        return (<div className='col' id={obj.cardID} onClick={(e) => handleDetailpage(e)}>
-                            <div className='card h-100'  >
-                                <img id={obj.cardId} className="card-img-top" />
+                        return (<div className='col' key={index} onClick={(e) => handleDetailpage(e)}>
+                            <div className='card h-100' id={obj.cardId}>
+                                <img className="card-img-top" src="https://hdwallpaperim.com/wp-content/uploads/2017/08/31/149631-HDR-France-Paris-cityscape.jpg" alt="paris" />
                                 <div className='card-body' id={obj.cardId} >
-                                    <p className='Tags'  >{obj.placeTag}</p><h3 className='card-title'  >{obj.placeName}</h3>
-                                    <p className='card-text' >{obj.placeDescription}</p>
-                                    <moment >({obj.createdAt})</moment></div>
-
+                                    <p className='Tags' id={obj.cardId}>{obj.placeTag}</p>
+                                    <h3 className='card-title' id={obj.cardId} >{obj.placeName}</h3>
+                                    <p className='card-text' id={obj.cardId} >{obj.placeDescription}</p>
+                                    <p id={obj.cardId}><Moment id={obj.cardId} fromNow>{obj.createdAt}</Moment></p>
+                                </div>
                             </div>
                         </div>
                         )

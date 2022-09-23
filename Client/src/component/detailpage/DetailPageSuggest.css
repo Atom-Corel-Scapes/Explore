@@ -10,8 +10,11 @@
 .outer-div {
     display: flex;
     margin-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
     /* box-shadow: 5px 10px 10px 10px #B0ACAC; */
 }
+
 
 .message {
     margin-top: -50px;
@@ -37,7 +40,14 @@
     padding-bottom: 310px;
     margin-right: 15px;
     margin-left: 15px;
-    box-shadow: 2px 2px 2px 2px #B0ACAC;
+    box-shadow: 0px 0px 15px #B0ACAC;
+}
+.container:hover {
+    transition: 0.5s;
+    transform: scale(1.10,1.10);
+    z-index: 2;
+    box-shadow: none;
+    border-radius: initial;
 }
 
 .suggest-image {

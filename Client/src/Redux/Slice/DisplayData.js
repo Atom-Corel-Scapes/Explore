@@ -8,7 +8,7 @@ export const Displaydata = createAsyncThunk("displayData", async (page) => {
 
 
     })
-    console.log(response);
+    // console.log(response);
     return response;
 
 
@@ -29,7 +29,6 @@ export const DisplayDatareducer = createSlice(
                 state.loading = true;
             },
             [Displaydata.fulfilled]: (state, action) => {
-
                 state.Display = action.payload.data;
                 state.loading = false;
             },

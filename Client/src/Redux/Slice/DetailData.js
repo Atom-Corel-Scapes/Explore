@@ -1,13 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const data = createAsyncThunk("user", async(data) => {
-    const response = fetch(``).then((res) => {
+export const detailData = createAsyncThunk("user", async(data) => {
+    const response = fetch(`http://localhost:5000/authenticate//postDetails?cardId=${data.ID}&placeTag=${data.Tag}`).then((res) => {
         return res.json();
     });
-    return data;
+    return response;
 })
 
-const detailData = createSlice({
+const detailReducer = createSlice({
     name: "detailPage",
     initialState: {
         data: [],
@@ -15,18 +15,19 @@ const detailData = createSlice({
     },
     reducers: {},
     extraReducers: {
-        [data.pending]: (state, action) => {
+        [detailData.pending]: (state, action) => {
             state.loading = true;
         },
-        [data.fulfilled]: (state, action) => {
-            state.data = action.payload;
+        [detailData.fulfilled]: (state, action) => {
+            //console.log(action.payload.postInfo);
+            state.data = action.payload.postInfo;
             state.loading = false;
         },
-        [data.rejected]: (state, action) => {
+        [detailData.rejected]: (state, action) => {
             state.loading = false;
         }
     }
 
 })
-const DetailPage = detailData.reducers;
+const DetailPage = detailReducer.reducer;
 export default DetailPage;

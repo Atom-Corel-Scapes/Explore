@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-export const datas = createAsyncThunk("user", async(data) => {
-    const response = fetch(``).then((res) => {
+export const suggestion = createAsyncThunk("user", async(data) => {
+    const response = fetch(`http://localhost:5000/authenticate//postDetails?cardId=${data.ID}&placeTag=${data.Tag}`).then((res) => {
         return res.json();
     });
     return response;
@@ -15,18 +15,19 @@ const detailSuggest = createSlice({
     },
     reducers: {},
     extraReducers: {
-        [datas.pending]: (state, action) => {
+        [suggestion.pending]: (state, action) => {
             state.loading = true;
         },
-        [datas.fulfilled]: (state, action) => {
-            state.data = action.payload;
+        [suggestion.fulfilled]: (state, action) => {
+            //console.log(action.payload.suggestions);
+            state.data = action.payload.suggestions;
             state.loading = false;
         },
-        [datas.rejected]: (state, action) => {
+        [suggestion.rejected]: (state, action) => {
             state.loading = false;
         }
     }
 
 })
-const DetailSuggests = detailSuggest.reducers;
+const DetailSuggests = detailSuggest.reducer;
 export default DetailSuggests;
