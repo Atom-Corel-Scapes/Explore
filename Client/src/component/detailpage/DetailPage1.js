@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { detailData } from "../../Redux/Slice/DetailData";
 import Logo from "../Images/Explore.jpg"
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ const DetailsPage = () => {
   useEffect(() => {
     setData(data)
   }, [data]);
-  console.log(placeData);
+  //console.log(placeData);
   return (<>
     <div className="nav">
     <img className='Logo' src={Logo} />

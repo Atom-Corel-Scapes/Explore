@@ -21,7 +21,7 @@ const PostSuggest = () => {
   const handleDetailpage = (e) => {
     //e.preventDefault()
     const ID = e.target.id;
-    console.log(ID);
+    //console.log(ID);
 
     placeData.length > 0 && placeData.map((obj) => {
       if (obj.cardId === ID) {

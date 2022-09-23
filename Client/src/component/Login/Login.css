@@ -8,27 +8,39 @@
 }
 
 .LoginContainer {
+
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 16px;
+    align-items: center;
+    margin-top: 90px;
+}
+
+.form {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 440px;
     height: 418px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-left: 500px;
-    margin-top: 142px;
-    border-radius: 2px;
-
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
+    border-radius: 5px;
 }
 
-.Vector {
 
-    background: #6A5ACD;
-    padding: 12px;
+.Vector {
+    width: 60px;
+    height: 60px;
     background: #6A5ACD;
     box-shadow: 0px 0px 4px rgba(176, 16, 48, 0.3);
-    border-radius: 250px;
+    border-radius: 30px;
+}
 
+.icon {
+    margin-left: 22px;
+    margin-top: 17px;
 }
 
 .Input-box1 {
@@ -61,11 +73,7 @@
     /* identical to box height */
     border: none;
     border-radius: 5px;
-
-
     color: #FFFFFF;
-
-
 }
 
 .Sign-in-btn-glg {
@@ -84,13 +92,11 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-
-
     color: #FFFFFF;
 }
-.Googlelogo
-{
-    width:30px;
+
+.Googlelogo {
+    width: 30px;
     height: 30px;
     display: flex;
     align-items: center;
@@ -115,27 +121,67 @@
 }
 
 @media screen and (max-width: 767px) {
-    
-.LoginContainer {
-    
-   
-    width:350px; 
-    align-items: center;
-    margin-left: 40px;
-    margin-top: 80px;
-   
+
+    .form {
+        align-items: center;
+        justify-content: center;
+        width: 400px;
+        height: 418px;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
+        border-radius: 5px;
+    }
+
+    .Input-box1 {
+        width: 340px;
+    }
+
+    .Input-box2 {
+        width: 340px;
+    }
+
+    .LoginContainer button {
+        width: 340px;
+    }
 
 }
-.Input-box1 {
-    width: 340px;
-}
-.Input-box2 {
-    width: 340px;
-}
-.LoginContainer button {
-    width: 340px;
-}
 
-   
-  }
-  
+@media screen and (max-width:450px) {
+    .form {
+        width: 300px;
+        height: 318px;
+        font-size: 12px;
+    }
+
+    .Vector {
+        margin-top: 8px;
+        width: 40px;
+        height: 62px;
+    }
+
+    .icon {
+        margin-left: 12px;
+        margin-top: 7px;
+        scale: 80%;
+    }
+
+    .Input-box1 {
+        width: 240px;
+    }
+
+    .Input-box2 {
+        width: 240px;
+    }
+
+    .LoginContainer button {
+        width: 240px;
+        font-size: 12px;
+    }
+
+    .Googlelogo {
+        scale: 80%;
+    }
+
+    .footer-signup-link {
+        font-size: 12px;
+    }
+}

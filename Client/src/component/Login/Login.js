@@ -34,22 +34,20 @@ const Login = () => {
 
   }, [loginData])
 
-  return (
+  return (<div className="LoginContainer">
     <form className='form' onSubmit={signIn}>
-      <div className="LoginContainer">
+      <div className='Vector'><img className='icon' src={VectorLogo} /></div>
+      <input type="text" placeholder='   Email Address *' required className='Input-box1'></input>
+      <input type="text" placeholder='   password *' required className='Input-box2'></input>
+      <div><span>{Error}</span></div>
+      <button className='Sign-in-btn'>SIGN IN</button>
 
-        <img className='Vector' src={VectorLogo} />
-
-        <input type="text" placeholder='   Email Address *' required className='Input-box1'></input>
-        <input type="text" placeholder='   password *' required className='Input-box2'></input>
-        <div><span>{Error}</span></div>
-        <button className='Sign-in-btn'>SIGN IN</button>
-
-        <button className='Sign-in-btn-glg'><img className='Googlelogo' src={google} />GOOGLE SIGN IN</button>
-        <p className='footer-signup-link'> Don't have an account ? <Link to="/signup" >SIGN UP</Link></p>
+      <button className='Sign-in-btn-glg'><img className='Googlelogo' src={google} />GOOGLE SIGN IN</button>
+      <p className='footer-signup-link'> Don't have an account ? <Link to="/signup" >SIGN UP</Link></p>
 
 
-      </div>   </form>
+    </form>
+  </div>
 
   )
 

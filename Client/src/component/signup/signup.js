@@ -12,7 +12,7 @@ const Signup = () => {
     const dispatch = useDispatch();
     const Navigate = useNavigate();
     const { data, loading } = useSelector((state) => state.sigupdata);
-    const [loginStatus, setLoginStatus] = useState({status: 0, message: ''});
+    const [loginStatus, setLoginStatus] = useState({ status: 0, message: '' });
 
     useEffect(() => {
         if (data.response === 'success') {
@@ -21,7 +21,7 @@ const Signup = () => {
                 message: 'success'
             })
             // Navigate('/LandingPage')
-        } else if(data.response === 'failure') {
+        } else if (data.response === 'failure') {
             setLoginStatus({
                 status: 1,
                 message: 'failure'
@@ -48,33 +48,35 @@ const Signup = () => {
 
     return (
         <>
-       
-        <div className='signup-container'>
-        {
-            loginStatus.status>0 && 
-                <div className='signup-status--container'>
-                {loginStatus.message === 'success' && <span className="signup-success">Signup Success!! Signin now</span>}
-                {loginStatus.message === 'failure' &&<span className="signup-failure">Check the user date given</span>}
-                </div>
-        }
-        
-        <form className="signup-container--form" onSubmit={enter}>
-            <img className='signuplogo' src={VectorLogo} />
-            <p className='signup' > SIGN UP </p>
-            <div className="name" >
-                <input type="text" placeholder='   First Name *' required className='box1'></input>
-                <input type="text" placeholder='   Last Name *' required className='box2'></input>
+
+            <div className='signup-container'>
+                {
+                    loginStatus.status > 0 &&
+                    <div className='signup-status--container'>
+                        {loginStatus.message === 'success' && <span className="signup-success">Signup Success!! Signin now</span>}
+                        {loginStatus.message === 'failure' && <span className="signup-failure">Check the user date given</span>}
+                    </div>
+                }
+
+                <form className="signup-container--form" onSubmit={enter}>
+                    <div className='sign-up'>
+                    <img className='signup-icon' src={VectorLogo} />
+                    </div>
+                    <p className='signup' > SIGN UP </p>
+                    <div className="name" >
+                        <input type="text" placeholder='   First Name *' required className='box1'></input>
+                        <input type="text" placeholder='   Last Name *' required className='box2'></input>
+                    </div>
+                    <input type="text" placeholder='   Email Address *' required className='box3' ></input>
+                    <input type="text" placeholder='   Password *' required className='box4' ></input>
+                    <input type="tel" placeholder='    Phone Number *' required className='box5'></input>
+                    <button className='Sign-up-btn' > SIGN UP </button>
+                    <button className='Sign-up-btn-glg' > < img className='Googlelogo' src={google} />GOOGLE SIGN UP</button >
+                    <p className='Login-link' > Already Have An Account ? <Link to="/" >LOGIN</Link></p >
+                </form>
             </div>
-            <input type="text" placeholder='   Email Address *' required className='box3' ></input>
-            <input type="text" placeholder='   Password *' required className='box4' ></input>
-            <input type="tel" placeholder='    Phone Number *' required className='box5'></input>
-            <button className='Sign-in-btn' > SIGN UP </button>
-            <button className='Sign-in-btn-glg' > < img className='Googlelogo' src={google} />GOOGLE SIGN UP</button >
-            <p className='Login-link' > Already Have An Account ? <Link to="/" >LOGIN</Link></p >
-        </form>
-        </div>
         </>
-        
+
 
 
     )
