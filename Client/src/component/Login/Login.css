@@ -113,3 +113,29 @@
     text-decoration: none;
     color: #1473E6;
 }
+
+@media screen and (max-width: 767px) {
+    
+.LoginContainer {
+    
+   
+    width:350px; 
+    align-items: center;
+    margin-left: 40px;
+    margin-top: 80px;
+   
+
+}
+.Input-box1 {
+    width: 340px;
+}
+.Input-box2 {
+    width: 340px;
+}
+.LoginContainer button {
+    width: 340px;
+}
+
+   
+  }
+  

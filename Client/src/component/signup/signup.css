@@ -12,7 +12,7 @@
 
 }
 
-.singup-container {
+.signup-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -21,7 +21,7 @@
     justify-content: center;
     margin-top: 90px;
 }
-.singup-container--form {
+.signup-container--form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -162,3 +162,46 @@ input {
     text-align: left;
     padding: 5px;
 }
+
+
+@media screen and (max-width: 767px) {
+    
+    .signup-container--form  {
+        width:350px; 
+        height:500px;
+   }
+    .box1 {
+        width: 160px;
+        height:30px;
+    }
+    .box2 {
+        width: 160px;
+        height:30px;
+    }
+    .box3{
+        width:340px;
+        height:30px;
+    }
+    .box4{
+        width:340px;
+        height:30px;
+        
+    }
+
+    .box5{
+        width:340px;
+        height:30px;
+    }
+
+    .signup-container {
+        margin-top: 50px;
+    }
+
+    .signup-container--form button {
+        width: 340px;
+        height:40px;
+    }
+    
+       
+      }
+      

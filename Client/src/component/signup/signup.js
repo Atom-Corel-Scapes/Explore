@@ -49,7 +49,7 @@ const Signup = () => {
     return (
         <>
        
-        <div className='singup-container'>
+        <div className='signup-container'>
         {
             loginStatus.status>0 && 
                 <div className='signup-status--container'>
@@ -58,7 +58,7 @@ const Signup = () => {
                 </div>
         }
         
-        <form className="singup-container--form" onSubmit={enter}>
+        <form className="signup-container--form" onSubmit={enter}>
             <img className='signuplogo' src={VectorLogo} />
             <p className='signup' > SIGN UP </p>
             <div className="name" >
