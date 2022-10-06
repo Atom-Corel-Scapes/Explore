@@ -3,7 +3,7 @@ import "./LandingPage.css"
 import { useEffect } from 'react'
 import Logo from "../Images/Explore.jpg"
 import logOutLogo from "../Images/carbon_power.svg"
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ReactPaginate from "react-paginate"
 import { Displaydata } from '../../Redux/Slice/DisplayData'
 import { SearchData } from "../../Redux/Slice/SearchSlice"
@@ -37,7 +37,7 @@ const LandingPage = () => {
     }, [Details])
 
     useEffect(() => {
-        dispatch(Displaydata(1));
+        dispatch(Displaydata(0));
     }, [])
 
     const handelPageChange = (data) => {
@@ -73,16 +73,17 @@ const LandingPage = () => {
         dispatch(SearchData({ location, tag }));
 
     }
-         const { data, loadings } = useSelector((state) => state.Search);
-                   console.log(data);
+    const { data, loadings } = useSelector((state) => state.Search);
+    console.log(data);
 
-               console.log(Display.placeImag)
+    console.log(Display.placeImag)
 
 
     return (
         <>
             <div className='NavBarConatiner'>
                 <img className='Logo' src={Logo} />
+                {/* <button className='slide-button'>search</button> */}
                 <div className='UserName_block'>
                     <div className='User_image_Block'>
                         <img src={logOutLogo} className='user_Image'></img></div>
@@ -104,7 +105,7 @@ const LandingPage = () => {
                                 <div className='card-body' >
                                     <p className='Tags'  >{obj.placeTag}</p><h3 className='card-title'  >{obj.placeName}</h3>
                                     <p className='card-text' >{obj.placeDescription}</p>
-                                     <moment >({obj.createdAt})</moment></div>
+                                    <moment >({obj.createdAt})</moment></div>
 
                             </div>
                         </div>
@@ -113,7 +114,7 @@ const LandingPage = () => {
                     }
                     )
                 }
-                          </div>
+                </div>
                 <div className='Right-container'>
 
 
@@ -134,33 +135,41 @@ const LandingPage = () => {
                             <input type="text" placeholder='  Tags *' required={true}></input>
                             <input type="file" required={true}></input>
                             <button className='btn btn-primary' type='submit'>SUBMIT</button>
-                            <button type='reset'>CLEAR</button>
+                            <button className='reset-btn' type='reset'>CLEAR</button>
                         </div>
                     </form>
 
+                    <div className='paginate'>
+                        <ReactPaginate
 
-                    <ReactPaginate
-                    
-                    
-                        previousLabel={'<<'}
-                        nextLabel={'>>'}
-                        breakLabel={'..'}
-                        pageCount={9}
-                        marginPagesDisplayed={3}
-                        pageRangeDisplayed={1}
-                        containerClassName={'pagination justify-content-center '}
-                        onPageChange={handelPageChange}
-                        pageClassName={'page-item'}
-                        previousClassName={'page-item'}
-                        pageLinkClassName={'page-link'}
-                        previousLinkClassName={'page-link'}
-                        nextClassName={'page-item'}
-                        nextLinkClassName={'page-link'}
-                        activeClassName={'active'}
-                        breakClassName={'page-item'}
-                        breakLinkClassName={'page-link'} />
-                </div>
-            </div></>
+
+                            previousLabel={'<<'}
+                            nextLabel={'>>'}
+                            breakLabel={'..'}
+                            pageCount={9}
+                            marginPagesDisplayed={3}
+                            pageRangeDisplayed={1}
+                            containerClassName={'pagination justify-content-center '}
+                            onPageChange={handelPageChange}
+                            pageClassName={'page-item'}
+                            previousClassName={'page-item'}
+                            pageLinkClassName={'page-link'}
+                            previousLinkClassName={'page-link'}
+                            nextClassName={'page-item'}
+                            nextLinkClassName={'page-link'}
+                            activeClassName={'active'}
+                            breakClassName={'page-item'}
+                            breakLinkClassName={'page-link'} />
+                    </div>
+
+                </div >
+               </div></>
+                
+               
+
+
+
+            
 
 
     )
