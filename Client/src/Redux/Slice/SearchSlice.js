@@ -23,6 +23,7 @@ const SearchedData = createSlice({
             state.loadings = true;
         },
         [SearchData.fulfilled]: (state, action) => {
+            console.log(action.payload);
             state.data = action.payload;
             state.loadings = false;
         },

@@ -30,6 +30,7 @@ const SignupReducer = createSlice({
             state.loading = true;
         },
         [signup.fulfilled]: (state, action) => {
+            console.log(action.payload);
             state.data = action.payload;
             state.loading = false;
         },

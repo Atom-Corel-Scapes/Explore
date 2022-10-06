@@ -21,7 +21,7 @@ const PostSuggest = () => {
   const handleDetailpage = (e) => {
     //e.preventDefault()
     const ID = e.target.id;
-    console.log(ID);
+    //console.log(ID);
 
     placeData.length > 0 && placeData.map((obj) => {
       if (obj.cardId === ID) {
@@ -40,7 +40,7 @@ const PostSuggest = () => {
       <div className="outer-div"  onClick={(e) => handleDetailpage(e)}>
         {
           placeData.length > 0 && placeData.map((obj, index) => {
-            return (<div className="container" id={obj.cardId}>
+            return (<div className="container" id={obj.cardId} >
               <img
                 className="suggest-image" id={obj.cardId}
                 src="https://hdwallpaperim.com/wp-content/uploads/2017/08/31/149631-HDR-France-Paris-cityscape.jpg"

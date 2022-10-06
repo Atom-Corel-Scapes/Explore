@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { UploadData } from '../../Redux/Slice/UploadSlice'
 import { detailData } from '../../Redux/Slice/DetailData'
 import { suggestion } from '../../Redux/Slice/DetailSuggest'
+import { getUser } from '../../Redux/Slice/loginSlice'
 import { Link } from 'react-router-dom'
 import Moment from "react-moment"
 
@@ -18,6 +19,10 @@ const LandingPage = () => {
     const dispatch = useDispatch();
     const Navigate = useNavigate();
     const [mainData, setData] = useState("");
+
+    const { loginData } = useSelector((state) => state.User);
+    console.log(loginData.data);
+
     const upload = (e) => {
         e.preventDefault();
         const ele = e.target.elements
@@ -25,7 +30,8 @@ const LandingPage = () => {
         const placeDescription = ele[1].value;
         const placeTag = ele[2].value;
         const placeImage = ele[3].files;
-        console.log({ placeName, placeDescription, placeTag, placeImage });
+        const userFirstname = loginData.data
+        console.log({ placeName, placeDescription, placeTag, placeImage,userFirstname });
         dispatch(UploadData({ placeName, placeDescription, placeTag, placeImage }))
         ele[0].value = "";
         ele[1].value = "";
@@ -90,7 +96,7 @@ const LandingPage = () => {
     // console.log(data);
 
     // console.log(Display.placeImag)
-
+    
 
     return (
         <>
@@ -99,7 +105,7 @@ const LandingPage = () => {
                 <div className='UserName_block'>
                     <div className='User_image_Block'>
                         <img src={logOutLogo} className='user_Image'></img></div>
-                    <p className='UserName'>User</p>
+                    <p className='UserName'>{loginData.data}</p>
                     <Link to="/" ><button className='Btn-signin-landing'><img src={logOutLogo}></img></button></Link>
                 </div>
 

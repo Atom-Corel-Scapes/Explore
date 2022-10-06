@@ -11,7 +11,8 @@ export const UploadData = createAsyncThunk('uploadData', async (data) => {
             "placeName": data.placeName,
             "placeDescription": data.placeDescription,
             "placeTag": data.placeTag,
-            "images": data.placeImage
+            "images": data.placeImage,
+            "userFirstname":data.userFristname
 
         })
     }).then((res) => {
