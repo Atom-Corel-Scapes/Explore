@@ -45,7 +45,7 @@ const Login = () => {
     <form className='form' onSubmit={signIn}>
       <div className='Vector'><img className='icon' src={VectorLogo} /></div>
       <input type="text" placeholder='   Email Address *' required className='Input-box1'></input>
-      <input type="text" placeholder='   password *' required className='Input-box2'></input>
+      <input type="password" placeholder='   password *' required className='Input-box2'></input>
       <div><span>{Error}</span></div>
       <button className='Sign-in-btn'>SIGN IN</button>
 
