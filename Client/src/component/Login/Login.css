@@ -48,10 +48,10 @@
     border-radius: 5px;
 }
 
-.Sign-in-btn {
-    width: 420px;
-    margin-top: 15px;
-    height: 55px;
+.Btn-signin {
+    width: 140px;
+    margin-top: 10px;
+    height: 40px;
     background: #006FBB;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -128,12 +128,20 @@
 }
 .Input-box1 {
     width: 340px;
+    height: 35px;
 }
 .Input-box2 {
     width: 340px;
+    height: 35px;
 }
 .LoginContainer button {
     width: 340px;
+    height:40px;
+}
+.Btn-signin{
+    height: 30px;
+    width: 80px;
+    margin-bottom: 7px;
 }
 
    
