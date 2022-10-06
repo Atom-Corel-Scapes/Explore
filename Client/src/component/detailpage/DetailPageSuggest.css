@@ -159,3 +159,30 @@ git
     /* identical to box height */
     color: #000000;
 }
+@media screen and (max-device-width: 810px){
+    .outer-div{
+        display: flex;
+    }
+    .container{
+        margin-left: 50px;
+        height: 250px;
+        width: 200px;
+        padding: 0;
+    }
+    .suggest-image{
+        width:100%;
+        margin-right: 0;
+        margin-left: 0;
+        padding: 0
+    }
+    .suggest-description{
+       padding-left: 5px;
+    }
+    .hashtags{
+        padding-left: 5px;
+    }
+    .place{
+        padding-left: 5px;
+    }
+   
+}

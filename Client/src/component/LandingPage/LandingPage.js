@@ -9,7 +9,7 @@ import { Displaydata } from '../../Redux/Slice/DisplayData'
 import { SearchData } from "../../Redux/Slice/SearchSlice"
 import { useDispatch, useSelector } from 'react-redux'
 import { UploadData } from '../../Redux/Slice/UploadSlice'
-import moment from "moment"
+// import moment from "moment"
 
 
 const LandingPage = () => {

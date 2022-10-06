@@ -10,9 +10,9 @@
 
 .detail-image {
     width: 587px;
-    top: 0px;
     border-radius: 25px;
-    float: right;
+    margin-right: 25px;
+    margin-top: 17px;
 }
 
 .content {
@@ -24,14 +24,6 @@
 
 .text-content {
     width: 828px;
-}
-
-.detail-image {
-    display: flex;
-    width: 587px;
-    height: 359px;
-    margin-right: 25px;
-    margin-top: 17px;
 }
 
 .card body {
@@ -53,6 +45,32 @@
     color: #B0ACAC;
 }
 
+
 .tittle {
     margin-top: 17px;
 }
+
+
+@media screen and (max-device-width: 850px){
+    .detail-image {
+        scale: 70%;
+        margin-right: 15px;
+        margin-left: 130px;
+        top: 10px;
+    }
+    .content{
+        /* width:350px;
+        height: 450px; */
+        display: flex;
+        /* flex-direction: column; */
+    }
+    .text{
+        margin-top:15px;
+    }
+    .text-content{
+        top:100px;
+        width:500px;
+        height: 260px;
+    }
+}
+
