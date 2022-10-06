@@ -1,6 +1,3 @@
-/* .card {
-    
-} */
 
 .suggest-tile {
     height: 200px;
@@ -48,7 +45,7 @@
     transform: scale(1.10, 1.10);
     z-index: 2;
     box-shadow: none;
-    border-radius: initial;
+    border-radius: 25px;
 }
 
 .suggest-image {
@@ -77,18 +74,6 @@
 .main-div {
     box-shadow: 10 10 10 10px #B0ACAC;
 }
-
-git
-/* Bottom left text */
-
-.bottom-left {
-    position: absolute;
-    bottom: 8px;
-    left: 16px;
-}
-
-
-/* Top left text */
 
 .top-left {
     position: absolute;
@@ -127,34 +112,6 @@ git
     color: #B0ACAC;
 }
 
-
-/* Top right text */
-
-.top-right {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-}
-
-
-/* Bottom right text */
-
-.bottom-right {
-    position: absolute;
-    bottom: 8px;
-    right: 16px;
-}
-
-
-/* Centered text */
-
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 .place {
     position: absolute;
     width: 195px;
@@ -171,3 +128,88 @@ git
     color: #000000;
 }
 
+@media screen and (max-device-width: 850px) {
+    .outer-div {
+        display: flex;
+    }
+
+    .container {
+        margin-left: 50px;
+        height: 250px;
+        width: 200px;
+        padding: 0;
+    }
+
+    .suggest-image {
+        width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+        padding: 0
+    }
+
+    .suggest-description {
+        padding-left: 5px;
+    }
+
+    .hashtags {
+        padding-left: 5px;
+    }
+
+    .place {
+        padding-left: 5px;
+    }
+
+}
+
+@media screen and (max-device-width: 480px) {
+    .outer-div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        height: 142px;
+        width: 200px;
+        margin-bottom: 30px;
+        margin-left: 50px;
+        padding: 0;
+    }
+
+    .suggest-image {
+        width: 100%;
+        /* height: 100%; */
+        margin-right: 0;
+        margin-left: 0;
+        padding: 0;
+        border-radius: 25px;
+    }
+
+    .suggest-description {
+        display: none;
+    }
+
+    .hashtags {
+        display: none;
+    }
+
+    .top-left {
+        position: absolute;
+        top: 78px;
+        left: 100px;
+        color: white;
+        text-align: justify;
+    }
+
+    .place {
+        position: absolute;
+        width: 195px;
+        height: 30px;
+        top: 5px;
+        padding-left: 5px;
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 30px;
+        color: white;
+        font-weight: 800;
+    }
+}
