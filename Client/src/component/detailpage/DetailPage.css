@@ -19,10 +19,6 @@
     border-radius: 5px;
     margin-right: 11px;
 }
-.card {
-    flex-direction: row;
-    display: flex;
-}
 
 .detail-image {
     width: 587px;
