@@ -21,10 +21,15 @@ const Signup = () => {
                 message: 'success'
             })
             // Navigate('/LandingPage')
-        } else if (data.response === 'failure') {
+        } else if (data._message  === "signupData validation failed") {
             setLoginStatus({
                 status: 1,
                 message: 'failure'
+            })
+        } else if (data.response === "Invalid Email") {
+            setLoginStatus({
+                status: 1,
+                message: 'invalid'
             })
         }
 
@@ -36,11 +41,12 @@ const Signup = () => {
         const userEmail = e.target.elements[2].value;
         const userPassword = e.target.elements[3].value;
         const userPhoneNumber = e.target.elements[4].value;
-        e.target.elements[0].value = "";
-        e.target.elements[1].value = "";
-        e.target.elements[2].value = "";
-        e.target.elements[3].value = "";
-        e.target.elements[4].value = "";
+        // e.target.elements[0].value = "";
+        // e.target.elements[1].value = "";
+        // e.target.elements[2].value = "";
+        // e.target.elements[3].value = "";
+        // e.target.elements[4].value = "";
+        console.log(userFirstname, userLastname, userEmail, userPassword, userPhoneNumber);
         dispatch(signup({ userFirstname, userLastname, userEmail, userPassword, userPhoneNumber }));
     }
 
@@ -54,7 +60,8 @@ const Signup = () => {
                     loginStatus.status > 0 &&
                     <div className='signup-status--container'>
                         {loginStatus.message === 'success' && <span className="signup-success">Signup Success!! Signin now</span>}
-                        {loginStatus.message === 'failure' && <span className="signup-failure">Check the user date given</span>}
+                        {loginStatus.message === 'failure' && <span className="signup-failure">Signup Fail!! Check the user date given</span>}
+                        {loginStatus.message === 'invalid' && <span className="signup-failure">Email is already taken!! Use new Email or Login</span>}
                     </div>
                 }
 

@@ -9,9 +9,9 @@ import { useNavigate } from 'react-router-dom'
 import "./Login.css"
 
 const Login = () => {
-  const Navigate = useNavigate();
   const dispatch = useDispatch();
   const [Error, setError] = useState("")
+  const Navigate = useNavigate();
   const { loginData, loading } = useSelector((state) => state.User);
   console.log(loginData);
   const signIn = (e) => {
@@ -22,17 +22,24 @@ const Login = () => {
     dispatch(getUser({ email, pass }));
     ele[0].value = "";
     ele[1].value = "";
-
   }
-  useEffect(() => {
-    if (loginData.message) {
-      window.alert(" Login is Sucess")
-      Navigate('/LandingPage')
-    } else {
-      setError("")
-    }
 
-  }, [loginData])
+  // useEffect(() => {
+  //   if (loginData.message) {
+  //     // window.alert(" Login is Sucess")
+  //     Navigate('/LandingPage')
+  //   } else {
+  //     setError("")
+  //   }
+  // },)
+  if (loginData.message)
+  {
+    Navigate("/LandingPage")
+  }
+  else
+  {
+    console.log(loginData.message)
+  }
 
   return (<div className="LoginContainer">
     <form className='form' onSubmit={signIn}>

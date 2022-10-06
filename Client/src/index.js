@@ -7,7 +7,7 @@ import store from './Redux/Store/Store';
 import Main from './component/signup/Main/Main';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import LandinPage from './component/LandingPage/LandingPage';
+import LandingPage from './component/LandingPage/LandingPage';
 import Detailpage from './component/detailpage/Main/Detailpage';
 import './index.css';
 
@@ -22,7 +22,7 @@ root.render(
         <Routes>
           <Route path="/" element={<App />} exact ></Route>
           <Route path="/Signup" element={<Main />}></Route>
-          <Route path="/LandingPage" element={<LandinPage />}></Route>
+          <Route path="/LandingPage" element={<LandingPage />}></Route>
           <Route path="/LandingPage/Detailpage" element={<Detailpage />}></Route>
         </Routes>
       </BrowserRouter>

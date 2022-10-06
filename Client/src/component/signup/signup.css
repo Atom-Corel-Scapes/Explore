@@ -9,9 +9,13 @@
 .signup-success {
     font-size: 20px;
     color: rgb(117, 201, 117);
-
-
 }
+
+.signup-failure {
+    font-size: 20px;
+    color:red;
+}
+
 
 .signup-container {
     display: flex;

@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {axio} from '../../config/axios';
+import { axio } from '../../config/axios';
 
 export const getUser = createAsyncThunk('User', async (data) => {
 
-   return axio.get(`/authenticate/login?userEmail=${data.email}&userPassword=${data.pass}`)
+    return axio.get(`/authenticate/login?userEmail=${data.email}&userPassword=${data.pass}`)
 })
 
 export const logReducer = createSlice({
@@ -18,7 +18,6 @@ export const logReducer = createSlice({
             state.loading = true;
         },
         [getUser.fulfilled]: (state, action) => {
-            console.log(action.payload);
             state.loginData = action.payload.data;
             state.loading = false;
         },

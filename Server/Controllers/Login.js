@@ -11,7 +11,7 @@ export const login = async (req, res) => {
     );
     
     if (validPassword) {
-      res.status(200).send({ message: "Login success" });
+      res.status(200).send({ message: "Login success",data:user.userFirstname });
     } else {
       res.status(400).send({ error: "Invalid Password" });
     }
