@@ -74,3 +74,24 @@
     }
 }
 
+@media  screen and (max-device-width: 450px){
+    .detail-image {
+        width: 360px;
+        height: 250px;
+        right: 15px;
+        margin-top: 10px;
+    }
+    .content{
+        width:350px;
+        height: 450px;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .text{
+        margin-top:15px;
+    }
+    .text-content{
+        width:400px;
+        height: 260px;
+    }
+}
