@@ -31,14 +31,12 @@ const DetailsPage = () => {
           <p className="creator">Created By:MasterClass</p>
           <p className="duration"><Moment fromNow>{placeData.createdAt}</Moment></p>
         </div>
-        <div className="image">
           <img
             className="detail-image"
             src="https://hdwallpaperim.com/wp-content/uploads/2017/08/31/149631-HDR-France-Paris-cityscape.jpg"
             alt="paris"
           />
         </div>
-      </div>
     </div>
   </>
 
