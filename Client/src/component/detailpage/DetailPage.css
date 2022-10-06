@@ -68,3 +68,47 @@
 .tittle {
     margin-top: 17px;
 }
+@media screen and (max-device-width: 850px){
+    .detail-image {
+        scale: 70%;
+        margin-right: 15px;
+        margin-left: 130px;
+        top: 10px;
+    }
+    .content{
+        /* width:350px;
+        height: 450px; */
+        display: flex;
+        /* flex-direction: column; */
+    }
+    .text{
+        margin-top:15px;
+    }
+    .text-content{
+        top:100px;
+        width:500px;
+        height: 260px;
+    }
+}
+
+@media  screen and (max-device-width: 450px){
+        .detail-image {
+            width: 360px;
+            height: 250px;
+            right: 15px;
+            margin-top: 10px;
+        }
+        .content{
+            width:350px;
+            height: 450px;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        .text{
+            margin-top:15px;
+        }
+        .text-content{
+            width:400px;
+            height: 260px;
+        }
+}
