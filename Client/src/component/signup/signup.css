@@ -139,9 +139,10 @@
     color: #FFFFFF;
 }
 
-.Googlelogo {
+.SGooglelogo {
     width: 30px;
-    padding-right: 5px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
 }
 
 .Login-link {

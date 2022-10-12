@@ -78,7 +78,7 @@ const Signup = () => {
                     <input type="text" placeholder='   Password *' required className='box4' ></input>
                     <input type="tel" placeholder='    Phone Number *' required className='box5'></input>
                     <button className='Sign-up-btn' > SIGN UP </button>
-                    <button className='Sign-up-btn-glg' > < img className='Googlelogo' src={google} />GOOGLE SIGN UP</button >
+                    <button className='Sign-up-btn-glg' > < img className='SGooglelogo' src={google} />GOOGLE SIGN UP</button >
                     <p className='Login-link' > Already Have An Account ? <Link to="/" >LOGIN</Link></p >
                 </form>
             </div>

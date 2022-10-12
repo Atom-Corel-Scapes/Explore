@@ -95,15 +95,11 @@
     color: #FFFFFF;
 }
 
-.Googlelogo {
+.LGooglelogo {
     width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background: white;
     border-radius: 50%;
-    padding-right: 1px;
+   
 }
 
 .footer-signup-link {
@@ -177,7 +173,7 @@
         font-size: 12px;
     }
 
-    .Googlelogo {
+    .LGooglelogo {
         scale: 80%;
     }
 

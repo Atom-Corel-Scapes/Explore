@@ -49,7 +49,7 @@ const Login = () => {
       <div><span>{Error}</span></div>
       <button className='Sign-in-btn'>SIGN IN</button>
 
-      <button className='Sign-in-btn-glg'><img className='Googlelogo' src={google} />GOOGLE SIGN IN</button>
+      <button className='Sign-in-btn-glg'><img className='LGooglelogo' src={google} />GOOGLE SIGN IN</button>
       <p className='footer-signup-link'> Don't have an account ? <Link to="/signup" >SIGN UP</Link></p>
 
 

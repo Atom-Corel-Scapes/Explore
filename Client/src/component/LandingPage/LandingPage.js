@@ -14,6 +14,8 @@ import { suggestion } from '../../Redux/Slice/DetailSuggest'
 import { getUser } from '../../Redux/Slice/loginSlice'
 import { Link } from 'react-router-dom'
 import Moment from "react-moment"
+import { FaBars } from "react-icons/fa";
+import { ImCross } from "react-icons/im";
 
 const LandingPage = () => {
     const dispatch = useDispatch();
@@ -92,16 +94,32 @@ const LandingPage = () => {
         dispatch(SearchData({ location, tag }));
 
     }
-    // const { data, loadings } = useSelector((state) => state.Search);
-    // console.log(data);
+    const { data, loadings } = useSelector((state) => state.Search);
+    console.log(data);
+    useEffect(() => {
+        setData(data)
+    }, [data])
+    console.log(data);
 
     // console.log(Display.placeImag)
+
+    function openSlide() {
+
+        document.getElementById("slidebar").style.width = "100%";
+    }
+
+    function closeSlide() {
+        document.getElementById("slidebar").style.width = "0%";
+    }
 
 
     return (
         <>
+            <div style={{ marginLeft: '100%' }}></div>
+
             <div className='NavBarConatiner'>
                 <img className='Logo' src={Logo} />
+                <button id="SlideBtn" className='openBtn' onClick={openSlide}><FaBars /></button>
                 <div className='UserName_block'>
                     <div className='User_image_Block'>
                         <img src={logOutLogo} className='user_Image'></img></div>
@@ -134,58 +152,58 @@ const LandingPage = () => {
                     )
                 }
                 </div>
-                <div className='Right-container'>
-                    <div>
-                        <form onSubmit={handleSearch}>
-                            <div className='Search_block'><input type="text" placeholder='  Search *' className="Searchby-name" required={true}></input>
-                                <input type="text" placeholder='  Search Tag *' className="searchby-tags" required={true}></input>
-                                <div className='d-grid gap-2'><button className="btn_searchs">SEARCH</button></div>
-                            </div>
-                        </form>
+
+                <div className='Right-container' id='slidebar'>
+                    <button id="closebtn" className='CloseBtn' onClick={closeSlide}><ImCross /></button>
+                    <form onSubmit={handleSearch}>
+                        <div className='Search_block'><input type="text" placeholder='  Search *' className="Searchby-name" required={true}></input>
+                            <input type="text" placeholder='  Search Tag *' className="searchby-tags" required={true}></input>
+                            <div className='d-grid gap-2'><button className="btn_searchs">SEARCH</button></div>
+                        </div>
+                    </form>
 
 
 
-                        <form onSubmit={upload}>
-                            <div className='Upload_Block'>
-                                <div className='Upload_Header'>Create a Explore</div>
-                                <input type="text" placeholder='  Title *' className="Upload_Title" required={true}></input>
-                                <input type="text" placeholder='  Message *' className='Message_Text' required={true}></input>
-                                <input type="text" placeholder='  Tags *' required={true}></input>
-                                <input type="file" required={true}></input>
-                                <button className='btn btn-primary' type='submit'>SUBMIT</button>
-                                <button type='reset'>CLEAR</button>
-                            </div>
-                        </form>
-                    </div>
+                    <form onSubmit={upload}>
+                        <div className='Upload_Block'>
+                            <div className='Upload_Header'>Create a Explore</div>
+                            <input type="text" placeholder='  Title *' className="Upload_Title" required={true}></input>
+                            <input type="text" placeholder='  Message *' className='Message_Text' required={true}></input>
+                            <input type="text" placeholder='  Tags *' required={true}></input>
+                            <input type="file" required={true}></input>
+                            <button className='btn btn-primary' type='submit'>SUBMIT</button>
+                            <button type='reset'>CLEAR</button>
+                        </div>
+                    </form>
 
-
-
-
-                    <ReactPaginate
-
-
-                        previousLabel={'<<'}
-                        nextLabel={'>>'}
-                        breakLabel={'..'}
-                        pageCount={9}
-                        marginPagesDisplayed={3}
-                        pageRangeDisplayed={1}
-                        containerClassName={'pagination justify-content-center '}
-                        onPageChange={handelPageChange}
-                        pageClassName={'page-item'}
-                        previousClassName={'page-item'}
-                        pageLinkClassName={'page-link'}
-                        previousLinkClassName={'page-link'}
-                        nextClassName={'page-item'}
-                        nextLinkClassName={'page-link'}
-                        activeClassName={'active'}
-                        breakClassName={'page-item'}
-                        breakLinkClassName={'page-link'} />
                 </div>
-            </div></>
+            </div>
+            <ReactPaginate
+                previousLabel={'<<'}
+                nextLabel={'>>'}
+                breakLabel={'..'}
+                pageCount={9}
+                marginPagesDisplayed={3}
+                pageRangeDisplayed={1}
+                containerClassName={'pagination justify-content-center '}
+                onPageChange={handelPageChange}
+                pageClassName={'page-item'}
+                previousClassName={'page-item'}
+                pageLinkClassName={'page-link'}
+                previousLinkClassName={'page-link'}
+                nextClassName={'page-item'}
+                nextLinkClassName={'page-link'}
+                activeClassName={'active'}
+                breakClassName={'page-item'}
+                breakLinkClassName={'page-link'} />
+        </>
 
 
     )
 }
+
+
+
+
 
 export default LandingPage
