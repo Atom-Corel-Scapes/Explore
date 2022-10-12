@@ -245,3 +245,33 @@ h3.card-title {
     left: 75%;
     margin-bottom: 20px;
 }
+
+@media screen and (max-width: 768px) {
+    .Search_block{
+        margin-right: 70px;
+    }
+    .pagination{
+        margin-right: 70px;
+
+
+    }
+}
+
+@media screen and (max-width:450px) {
+    .pagination{
+        margin-left:40px;
+    }
+    .Search_block{
+        margin-left:50px;
+    
+    }
+    .Upload_Block {
+        margin-left:50px;
+    }
+    .NavBarConatiner {
+        width: 715px;;
+
+    }
+
+
+}
