@@ -272,7 +272,7 @@ h3.card-title {
 @media screen and (max-width:450px) {
 
     .NavBarConatiner {
-        width: 740px;
+        width: 100%;
 
 
     }
@@ -302,8 +302,8 @@ h3.card-title {
     }
 
     .col {
-        width: 500px;
-        height: 350px;
+        width: 150px;
+        height: 250px;
     }
 
     .card {

@@ -35,10 +35,10 @@ const LandingPage = () => {
         const userFirstname = loginData.data
         console.log({ placeName, placeDescription, placeTag, placeImage, userFirstname });
         dispatch(UploadData({ placeName, placeDescription, placeTag, placeImage }))
-        ele[0].value = "";
-        ele[1].value = "";
-        ele[2].value = "";
-        ele[3].value = "";
+        // ele[0].value = "";
+        // ele[1].value = "";
+        // ele[2].value = "";
+        // ele[3].value = "";
     }
     const { Details, loadinguser } = useSelector((state) => state.uploaddata);
     useEffect(() => {

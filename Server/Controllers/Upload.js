@@ -16,11 +16,14 @@ const upload = multer({
 }).single("images");
 
 export const uploadData = (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   upload(req, res, (err) => {
+    console.log(req.body);
+    console.log(req.file);
     if (err) {
-      // res.send("there is an when uploading data");
-      console.log(err);
+      // console.log("hi");
+      return res.send(err);
+      // console.log(err);
     } else {
       // const addImage = new uploadModel(req.body);
       const addImage = new uploadModel({
@@ -28,18 +31,17 @@ export const uploadData = (req, res) => {
         placeTag: req.body.placeTag,
         placeDescription: req.body.placeDescription,
         placeImage: {
-          data: req.file,
-          // contentType: "image/png",
+          data: req.file.filename,
+          contentType: "image/jpg",
         },
-        cardId : Math.floor(1000 + Math.random() * 9000)
+        cardId: Math.floor(1000 + Math.random() * 9000)
       });
+      // console.log(addImage);
       addImage.save((err, data) => {
         if (err) {
           res.send(err);
         }
-        res.status(200).send({
-          message: "Article uploaded sucessfully!!!",
-        });
+        res.status(200).send({message: "Article uploaded sucessfully!!!"});
       });
     }
   });
