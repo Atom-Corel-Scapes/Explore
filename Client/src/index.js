@@ -10,6 +10,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import LandingPage from './component/LandingPage/LandingPage';
 import Detailpage from './component/detailpage/Main/Detailpage';
 import './index.css';
+import PrivateRoutes from './protected';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,13 +25,13 @@ root.render(
           <Route path="/" element={<App />} exact ></Route>
           <Route path="/Signup" element={<Main />}></Route>
           <Route path="/LandingPage" element={<LandingPage />}></Route>
-          <Route path="/LandingPage/Detailpage" element={<Detailpage />}></Route>
+          <Route path="/LandingPage/Detailpage" element={<Detailpage />}></Route>  
         </Routes>
       </BrowserRouter>
-
     </Provider>
 
   </React.StrictMode>
 );
 
 reportWebVitals();
+

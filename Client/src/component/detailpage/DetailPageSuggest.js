@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { suggestion } from "../../Redux/Slice/DetailSuggest";
 import { detailData } from "../../Redux/Slice/DetailData";
 import { useNavigate } from "react-router-dom";
-
 import Moment from "react-moment";
 const PostSuggest = () => {
 
