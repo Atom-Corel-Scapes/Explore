@@ -31,7 +31,7 @@ const LandingPage = () => {
         const placeTag = ele[2].value;
         const placeImage = ele[3].files;
         const userFirstname = loginData.data
-        console.log({ placeName, placeDescription, placeTag, placeImage,userFirstname });
+        console.log({ placeName, placeDescription, placeTag, placeImage, userFirstname });
         dispatch(UploadData({ placeName, placeDescription, placeTag, placeImage }))
         ele[0].value = "";
         ele[1].value = "";
@@ -96,7 +96,7 @@ const LandingPage = () => {
     // console.log(data);
 
     // console.log(Display.placeImag)
-    
+
 
     return (
         <>
@@ -135,28 +135,30 @@ const LandingPage = () => {
                 }
                 </div>
                 <div className='Right-container'>
+                    <div>
+                        <form onSubmit={handleSearch}>
+                            <div className='Search_block'><input type="text" placeholder='  Search *' className="Searchby-name" required={true}></input>
+                                <input type="text" placeholder='  Search Tag *' className="searchby-tags" required={true}></input>
+                                <div className='d-grid gap-2'><button className="btn_searchs">SEARCH</button></div>
+                            </div>
+                        </form>
 
 
-                    <form onSubmit={handleSearch}>
-                        <div className='Search_block'><input type="text" placeholder='  Search *' className="Searchby-name" required={true}></input>
-                            <input type="text" placeholder='  Search Tag *' className="searchby-tags" required={true}></input>
-                            <div className='d-grid gap-2'><button className="btn_searchs">SEARCH</button></div>
-                        </div>
-                    </form>
+
+                        <form onSubmit={upload}>
+                            <div className='Upload_Block'>
+                                <div className='Upload_Header'>Create a Explore</div>
+                                <input type="text" placeholder='  Title *' className="Upload_Title" required={true}></input>
+                                <input type="text" placeholder='  Message *' className='Message_Text' required={true}></input>
+                                <input type="text" placeholder='  Tags *' required={true}></input>
+                                <input type="file" required={true}></input>
+                                <button className='btn btn-primary' type='submit'>SUBMIT</button>
+                                <button type='reset'>CLEAR</button>
+                            </div>
+                        </form>
+                    </div>
 
 
-
-                    <form onSubmit={upload}>
-                        <div className='Upload_Block'>
-                            <div className='Upload_Header'>Create a Explore</div>
-                            <input type="text" placeholder='  Title *' className="Upload_Title" required={true}></input>
-                            <input type="text" placeholder='  Message *' className='Message_Text' required={true}></input>
-                            <input type="text" placeholder='  Tags *' required={true}></input>
-                            <input type="file" required={true}></input>
-                            <button className='btn btn-primary' type='submit'>SUBMIT</button>
-                            <button type='reset'>CLEAR</button>
-                        </div>
-                    </form>
 
 
                     <ReactPaginate

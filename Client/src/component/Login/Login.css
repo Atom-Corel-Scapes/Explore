@@ -120,7 +120,7 @@
     color: #1473E6;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
 
     .form {
         align-items: center;

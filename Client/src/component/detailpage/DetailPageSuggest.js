@@ -51,13 +51,9 @@ const PostSuggest = () => {
                   <br /><Moment fromNow>{obj.createdAt}</Moment>
                 </p>
               </div>
-              <div className="hashtags" id={obj.cardId}>
-                <p>{obj.placeTag}</p>
-              </div >
+              <p className="hashtags" id={obj.cardId}>{obj.placeTag}</p>
               <p className="place" id={obj.cardId}>{obj.placeName}</p>
-              <p className="suggest-description" id={obj.cardId}>
-                {obj.placeDescription}
-              </p>
+              <p className="suggest-description" id={obj.cardId}>{obj.placeDescription}</p>
             </div>)
           })
         }

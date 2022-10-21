@@ -164,7 +164,7 @@ input {
 }
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
 
     .signup-container--form {
         width: 400px;
