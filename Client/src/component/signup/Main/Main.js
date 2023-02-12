@@ -4,10 +4,10 @@ import Signup from '../signup'
 const Main = () => {
   return (
     <div>
-        <NavBar/>
-        <Signup/>
+      <NavBar />
+      <Signup />
     </div>
   )
 }
 
-export default Main
+export default Main;
