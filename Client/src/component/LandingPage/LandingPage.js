@@ -37,7 +37,7 @@ const LandingPage = () => {
     }, [Details])
 
     useEffect(() => {
-        dispatch(Displaydata(1));
+        dispatch(Displaydata(0));
     }, [])
 
     const handelPageChange = (data) => {
@@ -96,11 +96,9 @@ const LandingPage = () => {
 
 
 
-                        const Base64String = btoa(String.fromCharCode(...new Uint8Array(Display[1].placeImage.data.data)));
-
                         return (<div className='col' key={obj._id} onClick={(e) => handleDetailpage(e)}>
                             <div className='card h-100'  >
-                                <img src={`data:image/png;base64,${Base64String}`} className="card-img-top" />
+                                <img  className="card-img-top" />
                                 <div className='card-body' >
                                     <p className='Tags'  >{obj.placeTag}</p><h3 className='card-title'  >{obj.placeName}</h3>
                                     <p className='card-text' >{obj.placeDescription}</p>
